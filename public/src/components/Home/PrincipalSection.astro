@@ -72,69 +72,69 @@ import CardNoticia from './Card.astro';
   <!-- Capa de opacidad -->
   <div class="absolute inset-0 bg-black opacity-50"></div>
 
-<!-- Paso de la ubicación -->
+  <!-- Paso de la ubicación -->
   <div class="relative mx-0 w-max z-10">
     <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white px-8 py-2.5 rounded-r-full text-center">Nuestra Ubicación</h3>
   </div>
 
-<!-- Contenido principal -->
-  <div class="relative container mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      
-<!-- Columna Izquierda: Imágenes pequeñas -->
-      <div class="flex flex-col space-y-4 md:col-span-1">
-        <div class="flex items-center text-white p-4 rounded-lg">
-          <div class="w-16 h-16 flex-shrink-0 bg-gray-200 rounded-full overflow-hidden">
-            <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Imagen 1" class="w-full h-full object-cover">
+  <!-- Contenido principal -->
+  <div class="relative mx-auto max-w-screen-xl px-4">
+    <div class="flex flex-col md:flex-row gap-6">
+
+      <!-- Columna Izquierda: Texto con imagen -->
+      <div class="flex flex-col space-y-4 flex-shrink-0 w-full md:w-1/3 order-2 md:order-1">
+        <div class="flex items-center space-x-4 text-white">
+          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden">
+            <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Imagen 1" class="w-full h-full object-cover rounded-full">
           </div>
-          <div class="ml-4 max-w-[calc(100%-4rem)]">
-            <h4 class="text-lg font-semibold">Lorem ipsum dolor sit amet. Diana.</h4>
-          </div>
-        </div>
-        <div class="flex items-center text-white p-4 rounded-lg">
-          <div class="w-16 h-16 flex-shrink-0 bg-gray-200 rounded-full overflow-hidden">
-            <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Imagen 2" class="w-full h-full object-cover">
-          </div>
-          <div class="ml-4 max-w-[calc(100%-4rem)]">
-            <h4 class="text-lg font-semibold">Lorem ipsum dolor sit amet. Ekko.</h4>
+          <div class="max-w-xs">
+            <h4 class="md:text-lg text-base font-semibold">Lorem ipsum dolor sit amet. Diana.</h4>
           </div>
         </div>
-        <div class="flex items-center text-white p-4 rounded-lg">
-          <div class="w-16 h-16 flex-shrink-0 bg-gray-200 rounded-full overflow-hidden">
-            <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Imagen 3" class="w-full h-full object-cover">
+        <div class="flex items-center space-x-4 text-white">
+          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden">
+            <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Imagen 2" class="w-full h-full object-cover rounded-full">
           </div>
-          <div class="ml-4 max-w-[calc(100%-4rem)]">
-            <h4 class="text-lg font-semibold">Lorem ipsum dolor sit amet. Akali.</h4>
+          <div class="max-w-xs ">
+            <h4 class="md:text-lg text-base font-semibold">Lorem ipsum dolor sit amet. Ekko.</h4>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 text-white">
+          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden">
+            <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Imagen 3" class="w-full h-full object-cover rounded-full">
+          </div>
+          <div class="max-w-xs">
+            <h4 class="md:text-lg text-base font-semibold">Lorem ipsum dolor sit amet. Akali.</h4>
           </div>
         </div>
       </div>
 
-<!-- Columna Central: Mapa -->
-      <div class="col-span-1 md:col-span-1 md:col-start-2">
+      <!-- Columna Central: Mapa -->
+      <div class="flex-grow w-full md:w-2/3 order-1">
         <div class="relative bg-customBlue p-1 rounded-lg shadow-md">
-          <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Mapa de la ubicación" class="w-full h-[25rem] object-cover rounded-md">
+          <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Mapa de la ubicación" class="w-full h-[25rem] md:h-[25rem] object-cover rounded-md"> <!-- Ajuste del tamaño -->
         </div>
       </div>
-      
-<!-- Columna Derecha: Texto informativo -->
-      <div class="md:col-span-1 md:col-start-3">
+
+      <!-- Columna Derecha: Texto informativo -->
+      <div class="flex-shrink-0 w-full md:w-1/3 order-3 md:order-2">
         <div class="p-4 rounded-lg text-white">
-          <h4 class="text-3xl font-semibold">Lorem ipsum dolor sit</h4>
-          <p class="text-white opacity-90 mt-2">Lorem ipsum dolor sit amet, 
-            consectetur adipiscing elit. Nullam vulputate ligula ut turpis dapibus malesuada...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Nullam vulputate ligula ut turpis dapibus malesuada. Maecenas imperdiet neque...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Nullam vulputate ligula ut turpis dapibus malesuada.
-            Praesent eu lacus sit amet ipsum pellentesque fermentum...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Nullam vulputate ligula ut turpis dapibus malesuada. Maecenas imperdiet neque...
+          <h4 class="text-2xl font-semibold">Lorem ipsum dolor sit</h4>
+          <p class="text-white opacity-90 mt-2 break-words">
+            bueno esto es un a prueba de texto que no se puede leer porque es muy largo y no tiene espacio para que se vea bien
+            basdasddasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+            bueno esto es un a prueba de texto que no se puede leer porque es muy largo y no tiene espacio para que se vea bienassssssssssssssssssssss
           </p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
+
+
+
 
 <!-- Sección de Formulario -->
     <section class="relative bg-customBlue text-white py-12 rounded-3xl z-10 -mt-5">
