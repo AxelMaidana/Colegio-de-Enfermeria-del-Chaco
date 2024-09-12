@@ -20,12 +20,12 @@ import CardNoticia from './Card.astro';
 
 <!-- Sección de últimas noticias -->  
 <section class="mt-8 mb-8">
-  <!-- Pastilla ULTIMAS NOTICIAS -->
+<!-- Pastilla ULTIMAS NOTICIAS -->
   <div class="relative mx-0 w-max z-10">
     <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white px-8 py-2.5 rounded-r-full text-center">Últimas Noticias</h3>
   </div>
 
-  <!-- Carrusel de noticias -->
+<!-- Carrusel de noticias -->
   <div class="relative overflow-visible">
     <div class="carousel-wrapper flex transition-transform duration-500 ease-in-out">
       <CardNoticia
@@ -72,16 +72,16 @@ import CardNoticia from './Card.astro';
   <!-- Capa de opacidad -->
   <div class="absolute inset-0 bg-black opacity-50"></div>
 
-  <!-- Paso de la ubicación -->
+<!-- Paso de la ubicación -->
   <div class="relative mx-0 w-max z-10">
     <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white px-8 py-2.5 rounded-r-full text-center">Nuestra Ubicación</h3>
   </div>
 
-  <!-- Contenido principal -->
+<!-- Contenido principal -->
   <div class="relative container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       
-      <!-- Columna Izquierda: Imágenes pequeñas -->
+<!-- Columna Izquierda: Imágenes pequeñas -->
       <div class="flex flex-col space-y-4 md:col-span-1">
         <div class="flex items-center text-white p-4 rounded-lg">
           <div class="w-16 h-16 flex-shrink-0 bg-gray-200 rounded-full overflow-hidden">
@@ -109,14 +109,14 @@ import CardNoticia from './Card.astro';
         </div>
       </div>
 
-      <!-- Columna Central: Mapa -->
+<!-- Columna Central: Mapa -->
       <div class="col-span-1 md:col-span-1 md:col-start-2">
         <div class="relative bg-customBlue p-1 rounded-lg shadow-md">
           <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Mapa de la ubicación" class="w-full h-[25rem] object-cover rounded-md">
         </div>
       </div>
       
-      <!-- Columna Derecha: Texto informativo -->
+<!-- Columna Derecha: Texto informativo -->
       <div class="md:col-span-1 md:col-start-3">
         <div class="p-4 rounded-lg text-white">
           <h4 class="text-3xl font-semibold">Lorem ipsum dolor sit</h4>
@@ -137,39 +137,40 @@ import CardNoticia from './Card.astro';
 </section>
 
 <!-- Sección de Formulario -->
-<section class="relative bg-customBlue text-white py-12 rounded-3xl z-10 -mt-5">
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section class="relative bg-customBlue text-white py-12 rounded-3xl z-10 -mt-5">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
     
-    <!-- Texto informativo -->
-    <div>
-      <h3 class="text-3xl md:text-6xl font-bold text-center md:text-left md:mb-4 ">¡Lorem ipsum dolor sit!</h3>
-      <p class="mb-6 mx-6 max-w-68 md:max-w-xl mt-8 text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Nullam vulputate ligula ut turpis dapibus malesuada. Maecenas imperdiet neque...
+<!-- Texto informativo -->
+      <div>
+        <h3 class="text-3xl md:text-6xl font-bold text-center md:text-left md:mb-4 ">¡Lorem ipsum dolor sit!</h3>
+        <p class="mb-6 mx-6 max-w-68 md:max-w-xl mt-8 text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Nullam vulputate ligula ut turpis dapibus malesuada. Maecenas imperdiet neque...
 
-      </p>
-    </div>
+        </p>
+      </div>
 
-    <!-- Formulario -->
-<div class="bg-white md:p-6 p-6 mx-4 md:mx-0 rounded-2xl shadow-md text-gray-700 z-20">
-  <h4 class="text-4xl font-semibold mb-6 text-center">Contáctanos</h4>
-  <div class="flex flex-col md:flex-row gap-6">
-    <!-- Formulario de Contacto -->
-    <form class="space-y-6 flex-1 text-center">
-      <input type="text" placeholder="Nombre y Apellido" class="w-64 md:w-80 p-2 rounded-3xl border-gray-200 text-sm bg-gray-200" />
-      <input type="text" placeholder="DNI" class="w-64 md:w-80 p-2 rounded-3xl border-gray-200 text-sm bg-gray-200" />
-      <input type="email" placeholder="Mail" class="w-64 md:w-80 p-2 rounded-3xl border-gray-200 text-sm bg-gray-200" />
-      <input type="text" placeholder="Teléfono" class="w-64 md:w-80 p-2 rounded-3xl border-gray-200 text-sm bg-gray-200" />
-      <!-- Botón centrado -->
-      <button type="submit" class="w-full bg-customGreen text-white py-3 px-6 rounded-3xl hover:scale-105 transition-transform">Enviar</button>
-    </form>
+<!-- Formulario -->
+      <div class="bg-white md:p-6 p-6 mx-4 md:mx-0 rounded-2xl shadow-md text-gray-700 z-20">
+        <h4 class="text-4xl font-semibold mb-6 text-center">Contáctanos</h4>
+        <div class="flex flex-col md:flex-row gap-6">
+<!-- Formulario de Contacto -->
+          <form class="space-y-6 flex-1">
+            <input type="text" placeholder="Nombre y Apellido" class="w-full md:w-76 p-2 rounded-3xl border-gray-200 text-sm bg-gray-200" />
+            <input type="text" placeholder="DNI" class="w-full md:w-76 p-2 rounded-3xl border-gray-200 text-sm bg-gray-200" />
+            <input type="email" placeholder="Mail" class="w-full md:w-76 p-2 rounded-3xl border-gray-200 text-sm bg-gray-200" />
+            <input type="text" placeholder="Teléfono" class="w-full md:w-76 p-2 rounded-3xl border-gray-200 text-sm bg-gray-200" />
+          </form>
 
-    <!-- Imagen en la segunda columna -->
-    <div class="flex-shrink-0">
-      <img src="blob:https://web.whatsapp.com/3411c0a0-ccb9-4d7f-a010-40aac9423803" alt="Descripción de la imagen" class="w-80 h-auto rounded-xl shadow-md">
-    </div>
-  </div>
-</div>
-
+<!-- Imagen en la segunda columna -->
+          <div class="flex-shrink-0">
+            <img src="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/subir%20imagen.jpeg?raw=true" alt="Descripción de la imagen" class="md:w-80 w-full h-auto rounded-xl shadow-md">
+          </div>
+        </div>
+<!-- Botón centrado -->
+        <div class="flex justify-center mt-6">
+          <button type="submit" class="w-full md:w-72 bg-customGreen text-white py-3 px-6 rounded-3xl hover:scale-105 transition-transform">Enviar</button>
+        </div>
+      </div>
 
   </div>
 </section>
