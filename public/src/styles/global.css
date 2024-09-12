@@ -6,3 +6,18 @@ html, body {
     padding: 0;
   }
   
+  .carousel-wrapper {
+    display: flex;
+    overflow: visible;
+    width: 100%;
+  }
+  
+  .carousel-wrapper > * {
+    flex: 0 0 auto; /* Prevents the cards from shrinking */
+    margin: 0 1rem; /* Adjust spacing between cards if needed */
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
