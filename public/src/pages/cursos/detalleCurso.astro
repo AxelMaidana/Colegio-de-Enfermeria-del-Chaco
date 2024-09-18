@@ -3,10 +3,14 @@ import LayoutNormal from '../../Layouts/LayoutNormal.astro';
 import Pastilla from '../../components/ActAcademicas/detalle/Pastilla.astro';
 import Banner from '../../components/ActAcademicas/detalle/Banner.astro';
 import TextoPDF from '../../components/ActAcademicas/TextoInformativo.astro';
+import Docente from '../../components/ActAcademicas/detalle/Docente.astro';
 ---
 
 <LayoutNormal title="Detalle del Curso">
   <Pastilla/>
   <Banner/>
-  <TextoPDF/>
+  <TextoPDF title="Descargar el contenido del curso" sizeText="text-md md:text-xl" borderRadius="rounded-3xl">
+    <a href="#" class="text-xs font-light underline">Descargar el programa en <strong>PDF</strong></a>
+  </TextoPDF>
+  <Docente/>
 </LayoutNormal>
