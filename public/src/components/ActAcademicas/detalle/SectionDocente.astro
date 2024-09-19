@@ -1,16 +1,16 @@
 ---
-const { image1, title1, description1, image2, title2, description2, TitleSection } = Astro.props;
+const { image1, title1, alt,  description1, image2, title2, description2, TitleSection } = Astro.props;
 ---
 
 <!-- Título del contenedor -->
-<h3 class="text-2xl font-bold pl-4 pb-2 md:pl-32">{TitleSection}</h3>
+<h3 class="text-2xl md:text-start text-center font-bold pl-4 pb-4 md:pl-32">{TitleSection}</h3>
 
 <!-- Contenedor de docentes -->
 <div class="container mx-auto py-4 grid grid-cols-1 gap-10 items-center md:grid-cols-[1fr_auto_1fr] md:gap-0">
   <!-- Primera columna -->
   <div class="flex flex-col md:flex-row items-center space-x-0 md:space-x-4 space-y-4 md:space-y-0">
     <!-- Imagen redonda -->
-    <img src={image1} alt={title1} class="w-32 h-32 rounded-full object-cover" />
+    <img src={image1} alt={alt} class="w-32 h-32 rounded-full object-cover bg-slate-100" />
     <!-- Título y descripción -->
     <div class="text-center md:text-left">
       <h2 class="text-xl font-semibold mb-2">{title1}</h2>
@@ -19,16 +19,16 @@ const { image1, title1, description1, image2, title2, description2, TitleSection
   </div>
 
   <!-- Separador -->
-  <div class="hidden md:block h-24 border-l border-gray-300/50 mx-4"></div>
+  <div class="hidden md:block h-24 border-l border-gray-300/50 md:mx-48"></div>
 
   <!-- Segunda columna -->
   <div class="flex flex-col md:flex-row items-center space-x-0 md:space-x-4 space-y-4 md:space-y-0">
     <!-- Imagen redonda -->
-    <img src={image2} alt={title2} class="w-32 h-32 rounded-full object-cover" />
+    <img src={image2} alt={alt} class="w-32 h-32 rounded-full object-cover" />
     <!-- Título y descripción -->
     <div class="text-center md:text-left">
       <h2 class="text-xl font-semibold mb-2">{title2}</h2>
-      <p class="text-gray-700 max-w-md">{description2}</p>
+      <p class="text-gray-700 md:max-w-md max-w-xs">{description2}</p>
     </div>
   </div>
 </div>
