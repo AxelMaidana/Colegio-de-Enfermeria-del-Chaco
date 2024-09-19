@@ -3,7 +3,10 @@ import LayoutNormal from '../../Layouts/LayoutNormal.astro';
 import Pastilla from '../../components/ActAcademicas/detalle/Pastilla.astro';
 import Banner from '../../components/ActAcademicas/detalle/Banner.astro';
 import TextoPDF from '../../components/ActAcademicas/TextoInformativo.astro';
-import Docente from '../../components/ActAcademicas/detalle/Docente.astro';
+import SectionDocente from '../../components/ActAcademicas/detalle/SectionDocente.astro';
+import InfoExtra from '../../components/ActAcademicas/detalle/InfoExtra.astro';
+import CardSide from '../../components/ActAcademicas/detalle/CardSide.astro';
+import Certificado from '../../components/ActAcademicas/detalle/Certificado.astro';
 ---
 
 <LayoutNormal title="Detalle del Curso">
@@ -12,5 +15,19 @@ import Docente from '../../components/ActAcademicas/detalle/Docente.astro';
   <TextoPDF title="Descargar el contenido del curso" sizeText="text-md md:text-xl" borderRadius="rounded-3xl">
     <a href="#" class="text-xs font-light underline">Descargar el programa en <strong>PDF</strong></a>
   </TextoPDF>
-  <Docente/>
+
+  <SectionDocente 
+  TitleSection="Profesores a cargo de la clase"
+  image1="https://avatars.githubusercontent.com/u/19623270?v=4" 
+  title1="Docente 1" 
+  description1="Descripción breve del docente para ver que tan largo es el contenedro y como se adecua a las necesidades requeridas previamente acordadas" 
+  image2="https://avatars.githubusercontent.com/u/96579172?v=4" 
+  title2="Docente 2" 
+  description2="Descripción breve del docente para ver que tan largo es el contenedro y como se adecua a las necesidades requeridas previamente acordadas, como vemos el contenedor es bastante bueno ya que el programador esta ana ana anashei " />
+  <InfoExtra 
+  TitleSection="Información extra"
+  title="Curso de Ingeniería de Software"
+  description="Descripción breve del curso para ver que tan largo es el contenedro y como se adecua a las necesidades requeridas previamente acordadas, como vemos el contenedor es bastante bueno ya que el programador esta ana ana anashei " />
+  <CardSide/>
+  <Certificado/>
 </LayoutNormal>
