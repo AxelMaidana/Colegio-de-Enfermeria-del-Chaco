@@ -1,23 +1,28 @@
+---
+// Header.astro
+const { logoSrc, titleLine1, titleLine2, registerButtonText, loginButtonText } = Astro.props;
+---
+
 <header class="bg-customBlue text-white py-2">
   <div class="container mx-auto flex flex-row justify-between items-center px-2 space-x-0">
     <!-- Logo y Título en columna en pantallas pequeñas y fila en pantallas grandes -->
     <div class="flex gap-2 md:gap-4 items-center text-left md:flex-row md:items-center">
       <!-- Logo con tamaño ajustado para pantallas móviles -->
-      <a href="/"><img src="https://raw.githubusercontent.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/refs/heads/master/public/src/media/cechLogo.png" alt="Logo CECH" class="h-14 w-auto md:h-20" /></a>
+      <a href="/"><img src={logoSrc} alt="Logo CECH" class="h-14 w-auto md:h-20" /></a>
       <!-- Título alineado a la derecha de la imagen en móviles -->
-      <h1 class="text-left md:text-left text-xs md:text-base font-semibold leading-tight md:leading-tight">
-        Colegio de Enfermería<br>
-        <span class="block text-left md:text-left">del Chaco</span>
-      </h1>
+      <a href="/"><h1 class="text-left md:text-left text-xs md:text-lg font-semibold leading-tight md:leading-tight tracking-wide">
+        {titleLine1}<br />
+        <span class="block text-left md:text-left">{titleLine2}</span>
+      </h1></a>
     </div>
 
     <!-- Botones ajustados para móviles, en fila en pantallas grandes -->
     <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-2">
-      <button class="bg-customBlue hover:scale-105 transition duration-300 ease-in-out border-2 border-customCyan text-white font-semibold py-1 px-2 rounded-full text-xs md:text-sm h-9 w-28 md:w-36">
-        REGÍSTRATE
+      <button class="bg-customBlue hover:scale-105 transition duration-300 ease-in-out border-[3px] border-customCyan text-white font-bold py-1 px-2 rounded-full text-xs md:text-sm h-9 w-28 md:w-36">
+        {registerButtonText}
       </button>
-      <button class="bg-customCyan hover:scale-105 transition duration-300 ease-in-out border-2 border-customCyan text-black font-semibold py-1 px-2 rounded-full text-xs md:text-sm h-9 w-28 md:w-36">
-        INICIAR SESIÓN
+      <button class="bg-customCyan hover:scale-105 transition duration-300 ease-in-out border-2 border-customCyan text-black font-bold py-1 px-2 rounded-full text-xs md:text-sm h-9 w-28 md:w-36">
+        {loginButtonText}
       </button>
     </div>
   </div>

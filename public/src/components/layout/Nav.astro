@@ -1,5 +1,9 @@
+---
+
+---
+
 <!-- Menú de navegación -->
-<nav class="bg-customGreen flex self-end md:justify-center md:items-center rounded-l-xl md:rounded-none md:rounded-b-xl shadow-lg w-8 md:w-full z-50 relative">
+<nav class="bg-customGreen text-sm font-semibold flex self-end md:justify-center md:items-center rounded-l-xl md:rounded-none md:rounded-b-xl shadow-lg w-8 md:w-full z-50 relative">
   <div class="container mx-auto py-1 flex justify-end w-full">
     <!-- Botón del menú para dispositivos móviles -->
     <button class="block md:hidden text-white focus:outline-none" id="menu-toggle">
@@ -11,37 +15,33 @@
       <!-- Menú de navegación para escritorio -->
       <ul class="hidden md:flex md:justify-between md:w-full text-white space-x-1">
         <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/" class="block transform hover:scale-105 transition-transform duration-300 text-white py-2 px-4">Inicio</a>
+          <a href="/institucional" class="block transform hover:scale-105  transition-transform duration-100 hover:underline text-white py-2 px-4">INSTITUCIONAL</a>
         </li>
         <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/institucional" class="block transform hover:scale-105  transition-transform duration-300 text-white py-2 px-4">Institucional</a>
+          <a href="/dictamenes" class="block transform hover:scale-105  transition-transform duration-100 hover:underline text-white py-2 px-4">DICTAMENES</a>
         </li>
         <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/dictamenes" class="block transform hover:scale-105  transition-transform duration-300 text-white py-2 px-4">Dictámenes</a>
+          <a href="/matriculados" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">MATRICULADOS ACTIVOS</a>
         </li>
         <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/matriculados" class="block transform hover:scale-105 transition-transform duration-300 text-white py-2 px-4">Matriculados Activos</a>
+          <a href="/novedades" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">NOVEDADES</a>
         </li>
         <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/novedades" class="block transform hover:scale-105 transition-transform duration-300 text-white py-2 px-4">Novedades</a>
+          <a href="/nombramientos" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">NOMBRAMIENTOS</a>
         </li>
         <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/nombramientos" class="block transform hover:scale-105 transition-transform duration-300 text-white py-2 px-4">Nombramientos</a>
+          <a href="/tramites" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">TRAMITES</a>
         </li>
         <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/tramites" class="block transform hover:scale-105 transition-transform duration-300 text-white py-2 px-4">Trámites</a>
+          <a href="/becas" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">BECAS</a>
         </li>
         <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/becas" class="block transform hover:scale-105 transition-transform duration-300 text-white py-2 px-4">Becas</a>
-        </li>
-        <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/cursos" class="block transform hover:scale-105 transition-transform duration-300 text-white py-2 px-4">Act. Académicas</a>
+          <a href="/cursos" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">ACT. ACADEMICAS</a>
         </li>
         <li class="flex-grow text-center">
-          <a href="/contacto" class="block transform hover:scale-105 transition-transform duration-300 text-white py-2 px-4">Contacto</a>
+          <a href="/contacto" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">CONTACTO</a>
         </li>
       </ul>
-    </div>
   </div>
 </nav>
 
@@ -52,14 +52,6 @@
     &times;
   </button>
   <ul class="mt-16 text-white space-y-1">
-    <li>
-      <a href="/" class="flex items-center m-4 py-4 px-6 hover:bg-green-300 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
-        <!-- Icono de Inicio -->
-        <svg  xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-home">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
-        Inicio
-      </a>
-    </li>
     <li>
       <a href="/institucional" class="flex items-center m-4 py-4 px-6 hover:bg-green-300 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
         <!-- Icono de Institucional -->
@@ -139,11 +131,19 @@
 
 <!-- Script para toggle del menú móvil -->
 <script>
-  document.getElementById('menu-toggle').addEventListener('click', function() {
-      document.getElementById('mobile-menu').classList.toggle('translate-x-full');
-  });
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('menu-close');
 
-  document.getElementById('menu-close').addEventListener('click', function() {
-      document.getElementById('mobile-menu').classList.add('translate-x-full');
+    if (menuToggle && mobileMenu && menuClose) {
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('translate-x-full');
+      });
+
+      menuClose.addEventListener('click', function() {
+        mobileMenu.classList.add('translate-x-full');
+      });
+    }
   });
 </script>

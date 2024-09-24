@@ -1,5 +1,27 @@
 ---
-import CardNoticia from './Card.astro';
+import InfiniteCarrousel from '../jsx/InfiniteCarrousel.tsx';
+import LocationMap from '../jsx/LocationMap.tsx';
+
+const cards = [
+  {
+    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    date: '01/02/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
+  {
+    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image3.png?raw=true',
+    date: '01/03/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
+  {
+    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    date: '01/04/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
+];
 ---
 <!-- Sección de noticia destacada -->
 <section class="relative w-full h-[30rem] -mt-8 z-10">
@@ -19,166 +41,17 @@ import CardNoticia from './Card.astro';
 
 <!-- Sección de últimas noticias -->  
 <section class="mt-8 mb-8">
-  <!-- Pastilla ULTIMAS NOTICIAS -->
-    <div class="relative mx-0 w-max z-10">
-      <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white md:px-8 py-2.5 rounded-r-full text-center">Últimas Noticias</h3>
-    </div>
-  
-  <!-- Carrusel de noticias -->
-    <div class="relative overflow-visible">
-      <div class="carousel-wrapper flex transition-transform duration-500 ease-in-out">
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image3.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image3.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image3.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image3.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image3.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
-        <CardNoticia
-          image="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image3.png?raw=true"
-          date="01/02/24"
-          title="Lorem ipsum dolor sit"
-          description="Descripción breve de la noticia..."
-        />
+    <!-- Pastilla ULTIMAS NOTICIAS -->
+      <div class="relative mx-0 w-max z-10">
+        <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white md:px-8 py-2.5 rounded-r-full text-center">Últimas Noticias</h3>
       </div>
-  
-      <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black text-white p-2 rounded-r-lg z-20" id="prevBtn">←</button>
-      <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black text-white p-2 rounded-l-lg z-20" id="nextBtn">→</button>
-    </div>
-  </section>
-  <script src="../js/carrousel.js"></script>
-<!-- Sección de Ubicación con imagen de fondo -->
-<section class="relative bg-cover bg-center pt-12 pb-28" style="background-image: url('https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/mapa.png?raw=true');">
-  <!-- Capa de opacidad -->
-  <div class="absolute inset-0 bg-black opacity-70"></div>
-
-  <!-- Paso de la ubicación -->
-  <div class="relative mx-0 w-max z-10">
-    <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white px-8 py-2.5 rounded-r-full text-center">Nuestra Ubicación</h3>
-  </div>
-
-  <!-- Contenido principal -->
-  <div class="relative mx-auto max-w-screen-xl px-4">
-    <div class="flex flex-col md:flex-row gap-6">
-
-      <!-- Columna Izquierda: Texto con imagen -->
-      <div class="flex flex-col space-y-8 flex-shrink-0 w-full md:w-1/4 order-2 md:order-1">
-        <div class="flex items-center space-x-2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-in-out justify-center  md:justify-end">
-          <div class="max-w-56 text-end">
-            <h4 class="md:text-lg text-base font-semibold">Ubicacion de ejemplo numero 1</h4>
-          </div>
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden cursor-pointer">
-            <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Ubicación 1" class="w-full h-full object-cover rounded-full border-2 border-customBlue hover:border-[3px] hover:border-customGreen">
-          </div>
-        </div>
-
-        <div class="flex items-center space-x-2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-in-out justify-center md:justify-end">
-          <div class="max-w-56 text-end">
-            <h4 class="md:text-lg text-base font-semibold">Av. Laprida 1922, C1001 BAR</h4>
-          </div>
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden cursor-pointer">
-            <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Ubicación 2" class="w-full h-full object-cover rounded-full border-2 border-customBlue hover:border-[3px] hover:border-customGreen">
-          </div>
-        </div>
-
-        <div class="flex items-center space-x-2 text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-in-out justify-center md:justify-end">
-          <div class="max-w-56 text-end">
-            <h4 class="md:text-lg text-base font-semibold">Universidad Tecnológica Nacional del Chaco</h4>
-          </div>
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden cursor-pointer">
-            <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg" alt="Ubicación 3" class="w-full h-full object-cover rounded-full border-2 border-customBlue hover:border-[3px] hover:border-customGreen">
-          </div>
-        </div>
-      </div>
-
-      <!-- Columna Central: Mapa -->
-      <div class="flex-grow w-full md:w-2/3 order-1">
-        <div class="relative bg-customBlue p-1 rounded-lg shadow-md">
-          <!-- Google Maps -->
-          <iframe 
-            id="mapFrame"
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1986341.1973255546!2d-60.0198222!3d-27.4700916!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450d03e1e1c547%3A0xe9b8bc80e2a11ef2!2sResistencia%2C+Argentina!5e0!3m2!1sen!2s!4v1611871222909!5m2!1sen!2s"
-            width="100%"
-            height="400"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy">
-          </iframe>
-        </div>
-      </div>
-
-      <!-- Columna Derecha: Texto informativo -->
-      <div class="flex-shrink-0 w-full md:w-1/4 order-3 md:order-2">
-        <div class="p-4 rounded-lg text-white text-center md:text-start">
-          <h4 class="text-2xl font-semibold">Lorem ipsum dolor sit</h4>
-          <p class="text-white opacity-90 mt-2 break-words">
-            Texto informativo sobre la ubicación. Lorem ipsun Lorem Lorem Ipsum Ipsum Lorem Ipsum Lorem
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+    
+    <!-- Carrusel de noticias -->
+    <InfiniteCarrousel client:load cards={cards} />
 </section>
+
+<!-- Seccion de Ubicacion con mapa interactivo -->
+  <LocationMap client:only="react" />
 
 <!-- Sección de Formulario -->
     <section class="relative bg-customBlue text-white py-20 rounded-3xl z-10 -mt-6">
