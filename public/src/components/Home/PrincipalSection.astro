@@ -21,6 +21,36 @@ const cards = [
     title: 'Lorem ipsum dolor sit',
     description: 'Descripción breve de la noticia...',
   },
+  {
+    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    date: '01/04/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
+  {
+    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    date: '01/04/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
+  {
+    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    date: '01/04/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
+  {
+    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    date: '01/04/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
+  {
+    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    date: '01/04/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
 ];
 ---
 <!-- Sección de noticia destacada -->
@@ -38,17 +68,19 @@ const cards = [
   </div>
 </section>
 
-
-<!-- Sección de últimas noticias -->  
+  <!-- Sección de últimas noticias -->
 <section class="mt-8 mb-8">
-    <!-- Pastilla ULTIMAS NOTICIAS -->
-      <div class="relative mx-0 w-max z-10">
-        <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white md:px-8 px-8 py-2.5 rounded-r-full text-center">Últimas Noticias</h3>
-      </div>
-    
-    <!-- Carrusel de noticias -->
+  <div class="relative mx-0 w-max z-10">
+    <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white md:px-8 px-8 py-2.5 rounded-r-full text-center">Últimas Noticias</h3>
+  </div>
+
+  <div class="bg-slate-400 overflow-hidden">
     <InfiniteCarrousel client:load cards={cards} />
+  </div>
 </section>
+
+ 
+
 
 <!-- Seccion de Ubicacion con mapa interactivo -->
   <LocationMap client:only="react" />

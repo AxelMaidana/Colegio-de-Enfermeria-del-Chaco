@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useCallback, useRef, useEffect } from 'react'
 
 interface CardProps {
   image: string
@@ -7,10 +7,10 @@ interface CardProps {
   description: string
 }
 
-const Card: React.FC<CardProps> = ({ image, date, title, description }) => (
-  <article className="bg-customBlue shadow-md p-1 rounded-2xl w-full max-w-xs mx-2 flex-shrink-0 transition-transform duration-300 ease-in-out overflow-visible">
+const Card: React.FC<CardProps & { isFocused: boolean }> = ({ image, date, title, description, isFocused }) => (
+  <article className={`bg-customBlue shadow-md p-1 rounded-2xl w-64 mx-2 my-6 flex-shrink-0 transition-all duration-300 ease-in-out overflow-visible ${isFocused ? 'opacity-100 scale-100' : 'opacity-50 scale-90'}`}>
     <div className="relative">
-      <img src={image} alt={title} className="w-full h-48 object-cover rounded-t-xl border-2 border-customBlue" />  
+      <img src={image} alt={title} className="w-full h-48 object-cover rounded-t-xl border-2 border-customBlue" />
       <div className="absolute top-[-20px] left-1/2 transform -translate-x-1/2 bg-customBlue text-white text-sm px-4 py-1 rounded-full">
         {date}
       </div>
@@ -27,6 +27,7 @@ interface InfiniteCarouselProps {
 export default function InfiniteCarousel({ cards }: InfiniteCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   const moveCarousel = useCallback((direction: 'left' | 'right') => {
     if (isAnimating || cards.length === 0) return
@@ -39,7 +40,7 @@ export default function InfiniteCarousel({ cards }: InfiniteCarouselProps) {
       return newIndex
     })
 
-    setTimeout(() => setIsAnimating(false), 300) // Match transition duration
+    setTimeout(() => setIsAnimating(false), 300)
   }, [cards.length, isAnimating])
 
   useEffect(() => {
@@ -52,19 +53,35 @@ export default function InfiniteCarousel({ cards }: InfiniteCarouselProps) {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [moveCarousel])
 
+  useEffect(() => {
+    if (carouselRef.current) {
+      const cardWidth = 272 // 256px (card width) + 16px (margin)
+      const scrollPosition = currentIndex * cardWidth - (window.innerWidth - cardWidth) / 2
+      carouselRef.current.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      })
+    }
+  }, [currentIndex])
+
   if (cards.length === 0) {
     return <div className="text-center text-gray-500">No hay tarjetas disponibles</div>
   }
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto overflow-hidden py-8">
+    <div className="relative w-full overflow-hidden py-8">
       <div 
-        className="flex transition-transform duration-300 ease-in-out"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        ref={carouselRef}
+        className="flex overflow-x-hidden snap-x snap-mandatory md:justify-center"
+        style={{ 
+          scrollSnapType: 'x mandatory',
+          paddingLeft: 'calc(50% - 136px)', // Half of the viewport minus half of the card width
+          paddingRight: 'calc(50% - 136px)'
+        }}
       >
         {cards.map((card, index) => (
-          <div key={`${card.title}-${index}`} className="w-full flex-shrink-0 flex justify-center items-center">
-            <Card {...card} />
+          <div key={`${card.title}-${index}`} className="w-64 flex-shrink-0 snap-center">
+            <Card {...card} isFocused={index === currentIndex} />
           </div>
         ))}
       </div>

@@ -1,10 +1,9 @@
 ---
 const { image, date, title, description } = Astro.props;
 ---
-
-<article class="bg-customBlue shadow-md p-1 rounded-2xl max-w-xs mx-2 flex-shrink-0 transform-gpu scale-75 md:scale-100 transition-transform duration-300 ease-in-out overflow-visible">
+<article class="bg-customBlue shadow-md p-1 rounded-2xl max-w-xs mx-2 flex-shrink-0 transform-gpu transition-transform duration-300 ease-in-out overflow-visible">
   <div class="relative">
-    <img src={image} alt={title} class="w-full h-48 object-cover rounded-t-xl border-2 border-customBlue" />  
+    <img src={image} alt={title} class="w-full h-48 object-cover rounded-t-xl border-2 border-customBlue" />
     <div class="absolute top-[-20px] left-1/2 transform -translate-x-1/2 bg-customBlue text-white text-sm px-4 py-1 rounded-full">
       {date}
     </div>

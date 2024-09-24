@@ -41,3 +41,13 @@ footer {
 button {
   cursor: pointer;
 }
+
+.carousel-container {
+  display: flex;
+  overflow: hidden; /* Asegura que el contenido fuera del contenedor no sea visible */
+}
+
+.carousel-container .Card {
+  width: calc(100% / 3); /* Ajusta el ancho de las tarjetas para que se muestren 3 al mismo tiempo */
+}
+
