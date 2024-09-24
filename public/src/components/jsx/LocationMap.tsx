@@ -84,7 +84,7 @@ export default function LocationMap() {
               <button
                 key={location.id}
                 onClick={() => setSelectedLocation(location)}
-                className="flex items-center space-x-2 w-full text-center p-2 rounded-lg text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-in-out pr-16 md:pr-6 justify-end md:justify-end"
+                className="flex items-center space-x-2 w-full text-center p-2 rounded-lg text-white/80 hover:text-white hover:scale-110 transition-all duration-300 ease-in-out pr-2 md:pr-6 justify-end md:justify-end"
               >
                 <div className="max-w-52 text-end md:text-end">
                   <h4 className="md:text-lg text-base font-semibold">{location.name}</h4>
