@@ -1,4 +1,5 @@
 ---
+import '@fontsource-variable/montserrat'
 import Header from '../components/layout/Header.astro';
 import Nav from '../components/layout/Nav.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -36,7 +37,7 @@ const footerData = {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="flex flex-col min-h-screen font-montserrat">
+	<body class="flex flex-col min-h-screen">
 		<Header 
 		logoSrc={headerData.logoSrc}
 		titleLine1={headerData.titleLine1}

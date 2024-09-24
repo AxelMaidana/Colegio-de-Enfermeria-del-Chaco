@@ -5,11 +5,12 @@ import L from 'leaflet';
 
 // Definir icono personalizado
 const customIcon = L.icon({
-  iconUrl: './media/marker.svg', // URL del icono
-  iconSize: [38, 38], // Tamaño del icono
-  iconAnchor: [19, 38], // Punto de anclaje del icono (normalmente su base)
-  popupAnchor: [0, -38], // Punto donde el popup aparece en relación al icono
+  iconUrl: 'https://img.icons8.com/?size=100&id=52671&format=png&color=000000',
+  iconSize: [38, 38],
+  iconAnchor: [19, 38],
+  popupAnchor: [0, -38],
 });
+
 
 // Definimos la interfaz para nuestras ubicaciones
 interface Location {
@@ -104,7 +105,7 @@ export default function LocationMap() {
             <div className="relative bg-customBlue p-1 rounded-lg shadow-md">
               <MapContainer center={selectedLocation.coordinates} zoom={14} style={{ height: '400px', width: '100%' }}>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                <Marker position={selectedLocation.coordinates} />
+                <Marker position={selectedLocation.coordinates} icon={customIcon} />
                 <ChangeView center={selectedLocation.coordinates} />
               </MapContainer>
             </div>
