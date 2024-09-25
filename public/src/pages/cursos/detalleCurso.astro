@@ -1,5 +1,5 @@
 ---
-import LayoutNormal from '../../Layouts/LayoutIndex.astro';
+import Layout from '../../Layouts/Layout.astro';
 import Pastilla from '../../components/ActAcademicas/detalle/Pastilla.astro';
 import Banner from '../../components/ActAcademicas/detalle/Banner.astro';
 import TextoPDF from '../../components/ActAcademicas/TextoInformativo.astro';
@@ -9,12 +9,15 @@ import CardSide from '../../components/ActAcademicas/detalle/CardSide.astro';
 import Certificado from '../../components/ActAcademicas/detalle/Certificado.astro';
 ---
 
-<LayoutNormal title="Detalle del Curso">
+<Layout title="Detalle del Curso">
     <Pastilla/>
     <Banner/>
     <TextoPDF title="Descargar el contenido del curso" sizeText="text-md md:text-xl" borderRadius="rounded-3xl">
-      <a href="#" class="text-xs font-light underline">Descargar el programa en <strong>PDF</strong></a>
+      <a href="../../../media/Certificado - Estudiante.pdf" download="Certificado - Estudiante.pdf" class="text-xs font-light underline">
+        Descargar el programa en <strong>PDF</strong>
+      </a>
     </TextoPDF>
+    
 
       <SectionDocente 
       TitleSection="Profesores a cargo de la clase"
@@ -35,4 +38,4 @@ import Certificado from '../../components/ActAcademicas/detalle/Certificado.astr
     <CardSide/>
     
     <Certificado/>
-</LayoutNormal>
+</Layout>

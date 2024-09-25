@@ -1,15 +1,15 @@
 ---
-// Card detalle de curso
+import InscripcionModal from './Form.astro'
+
 ---
 
 <div class="bg-gray-100 mx-4 sm:mx-10 md:mx-20 lg:mx-32 xl:mx-52 rounded-3xl overflow-hidden">
   <!-- Imagen con gradiente aplicado -->
   <div class="relative w-auto md:h-[600px] overflow-hidden">
     <img src="https://advantecnia.com/wp-content/uploads/2023/07/Funciones-de-una-enfermera-en-un-hospital-1.jpg" alt="Image description" class="w-full h-full object-cover" />
-    <!-- Gradiente  -->
     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
   </div>
-  
+
   <!-- Contenedor de información -->
   <div class="bg-white p-4 relative">
     <div class="relative z-10">
@@ -18,37 +18,22 @@
         <!-- Contenedor del botón -->
         <div>
           <button class="bg-customBlue hover:scale-105 transition duration-300 ease-in-out text-white px-10 py-3 rounded-xl text-xl font-semibold">
-            Inscribirme ahora
+            Inscribirme Ahora
           </button>
         </div>
-      
+
         <!-- Contenedor de los spans -->
         <div class="flex gap-3 justify-end items-center">
-          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">
-            $100.000 
-          </span>
-          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">
-            Asincronico 
-          </span>
-          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">
-            6 Meses 
-          </span>
+          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">$100.000</span>
+          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">Asincronico</span>
+          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">6 Meses</span>
         </div>
       </div>
-      
-      <h3 class=" text-black text-xl font-bold mb-2">Descripcion</h3>
+
+      <h3 class="text-black text-xl font-bold mb-2">Descripción</h3>
       <p class="text-gray-900 mb-4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum aliquid et sapiente recusandae, 
-        commodi non repellat temporibus illum exercitationem reiciendis labore architecto voluptates 
-        ab officiis quis. Debitis cupiditate necessitatibus iusto.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque sunt reiciendis autem harum 
-        assumenda veritatis mollitia facere eligendi ex quam error sapiente quidem atque magni, numquam 
-        nam voluptatem perferendis qui.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum aliquid et sapiente recusandae, 
-        commodi non repellat temporibus illum exercitationem reiciendis labore architecto voluptates 
-        ab officiis quis. Debitis cupiditate necessitatibus iusto.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque sunt reiciendis autem harum 
-        
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit...
       </p>
+    </div>
   </div>
 </div>
