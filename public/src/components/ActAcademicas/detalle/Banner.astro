@@ -1,45 +1,220 @@
 ---
-// src/components/ActAcademicas/detalle/Banner.astro
 const { title, image, price, modality, duration, description } = Astro.props;
 ---
 
 <div class="bg-gray-100 mx-4 sm:mx-10 md:mx-20 lg:mx-32 xl:mx-52 rounded-3xl overflow-hidden">
-  <!-- Imagen con gradiente aplicado -->
   <div class="relative w-auto md:h-[600px] overflow-hidden">
     <img src={image} alt={`Imagen de ${title}`} class="w-full h-full object-cover" />
     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
   </div>
 
-  <!-- Contenedor de información -->
   <div class="bg-white p-4 relative">
     <div class="relative z-10">
       <h1 class="md:text-7xl text-5xl font-bold mb-2">{title}</h1>
       <div class="flex flex-wrap gap-8 my-6">
-        <!-- Contenedor del botón -->
         <div>
-          <button class="bg-customBlue hover:scale-105 transition duration-300 ease-in-out text-white px-10 py-3 rounded-xl text-xl font-semibold">
+          <button id="inscribirme-btn" class="bg-customBlue hover:scale-105 transition duration-300 ease-in-out text-white px-10 py-3 rounded-xl text-xl font-semibold">
             Inscribirme Ahora
           </button>
         </div>
-
-        <!-- Contenedor de los spans -->
-          <div class="flex flex-wrap gap-3 md:justify-end items-center">
-            <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">
-              {price}
-            </span>
-            <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">
-              {modality}
-            </span>
-            <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">
-              {duration}
-            </span>
-          </div>
+        <div class="flex flex-wrap gap-3 md:justify-end items-center">
+          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">{price}</span>
+          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">{modality}</span>
+          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">{duration}</span>
         </div>
-
+      </div>
       <h3 class="text-black text-xl font-bold mb-2">Descripción</h3>
-      <p class="text-gray-900 mb-4">
-        {description}
-      </p>
+      <p class="text-gray-900 mb-4">{description}</p>
     </div>
   </div>
 </div>
+
+<!-- Modal principal -->
+<div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+  <div class="bg-customCyan text-customBlack p-6 sm:p-8 md:p-10 rounded-3xl shadow-lg max-w-lg w-full transform transition-transform duration-300 scale-95 translate-y-4">
+    <h1 class="text-4xl sm:text-6xl md:text-7xl text-center font-extrabold mt-2 mb-6">¡Hola!👋</h1>
+    <h2 class="text-xl sm:text-4xl text-center font-extrabold mb-4">PARECE QUE NO HAS INICIADO SESIÓN</h2>
+    <p class="text-sm sm:text-base text-center font-medium mb-6">Para poder inscribirte a un curso, por favor inicia sesión o crea una cuenta.</p>
+    
+    <div class="flex justify-center flex-col items-center mb-3">
+      <button id="login-btn" class="bg-customBlue transition duration-300 hover:scale-105 text-white text-xl sm:text-2xl font-extrabold px-6 py-2 rounded-xl">INICIAR SESION</button>
+      <p class="text-customBlue text-sm font-medium pt-2">¿Aun no tienes una cuenta?</p>
+      <a href="#" id="register-link" class="text-customBlue underline text-xs font-bold tracking-tight">HAZ CLICK AQUI PARA REGISTRARTE</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de inicio de sesión -->
+<div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+  <div class="bg-white text-customBlack p-6 sm:p-8 md:p-10 rounded-3xl shadow-lg max-w-md w-full transform transition-transform duration-300 scale-95 translate-y-4">
+    <h2 class="text-2xl sm:text-3xl text-center font-bold mt-2 mb-6">INICIAR SESIÓN</h2>
+    <form>
+      <div class="mb-4">
+        <label for="username" class="block text-lg font-bold">Usuario</label>
+        <input type="text" id="username" class="border border-customBlack rounded-2xl w-full p-2" required />
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-lg font-bold">Contraseña</label>
+        <input type="password" id="password" class="border border-customBlack rounded-2xl w-full p-2" required />
+      </div>
+
+      <div class="flex justify-center flex-col items-center mt-10 mb-3">
+        <button id="submit-login-btn" class="bg-customBlue transition duration-300 hover:scale-105 text-white text-sm font-semibold px-6 py-3 rounded-xl">INGRESAR</button>
+        <p class="text-customBlue text-sm font-xs pt-6">¿Aun no tienes una cuenta?</p>
+        <a href="#" id="register-link-2" class="text-customBlue underline text-xs font-bold tracking-tight">HAZ CLICK AQUI PARA REGISTRARTE</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal de registro -->
+<div id="register-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+  <div class="bg-white text-customBlack p-6 sm:p-8 md:p-10 rounded-3xl shadow-lg max-w-md w-full transform transition-transform duration-300 scale-95 translate-y-4">
+    <h2 class="text-2xl sm:text-3xl text-center font-bold mt-2 mb-6">INSCRIPCION</h2>
+    <form>
+      <div class="mb-4">
+        <label for="first-name" class="block text-lg font-bold">Nombre</label>
+        <input type="text" id="first-name" class="border border-customBlack rounded-2xl w-full p-2"  />
+      </div>
+      <div class="mb-4">
+        <label for="last-name" class="block text-lg font-bold">Apellido</label>
+        <input type="text" id="last-name" class="border border-customBlack rounded-2xl w-full p-2"  />
+      </div>
+      <div class="mb-4">
+        <label for="dni" class="block text-lg font-bold">DNI</label>
+        <input type="text" id="dni" class="border border-customBlack rounded-2xl w-full p-2"  />
+      </div>
+      <div class="mb-4">
+        <label for="birthdate" class="block text-lg font-bold">Fecha de Nacimiento</label>
+        <input type="date" id="birthdate" class="border border-customBlack rounded-2xl w-full p-2" />
+      </div>
+
+      <div class="flex justify-center flex-col items-center mt-10 mb-3">
+        <button id="register-btn" class="bg-customBlue transition duration-300 hover:scale-105 text-white text-sm font-semibold px-6 py-3 rounded-2xl">FINALIZAR INSCRIPCION</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal de certificación completada -->
+<div id="final-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+  <div class="bg-customCyan text-customBlack p-8 md:p-10 lg:p-12 rounded-3xl shadow-lg max-w-lg w-full transform transition-transform duration-300 scale-95 translate-y-4">
+    <h2 class="text-2xl md:text-3xl text-center font-extrabold mb-4">¡TE HAS INSCRIPTO CORRECTAMENTE!</h2>
+    <p class="text-sm md:text-base text-center font-semibold mb-6">Tu inscripción se ha realizado con éxito. Nos pondremos en contacto contigo a la brevedad para brindarte más detalles.</p>
+    
+    <div class="flex justify-center flex-col items-center mb-3">
+      <button id="close-final-btn" class="bg-customBlue transition duration-300 hover:scale-105 text-white text-3xl font-extrabold px-6 py-2 rounded-xl">CONTINUAR</button>
+    </div>
+  </div>
+</div>
+
+<script>
+   // Función para abrir el modal principal
+   document.getElementById('inscribirme-btn').addEventListener('click', () => {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('hidden');
+    modal.classList.remove('opacity-0', 'pointer-events-none'); // Remueve la opacidad y eventos
+    modal.classList.add('opacity-100'); // Agrega opacidad total para mostrar el modal
+    setTimeout(() => {
+      modal.querySelector('div').classList.remove('scale-95', 'translate-y-4'); // Elimina las transformaciones para la entrada
+    }, 10); // Pequeño retraso para que las clases se apliquen correctamente
+  });
+
+  // Abrir el modal de inicio de sesión
+  document.getElementById('login-btn').addEventListener('click', () => {
+    const modal = document.getElementById('modal');
+    const loginModal = document.getElementById('login-modal');
+    closeModal(); // Cierra el modal principal
+    loginModal.classList.remove('hidden');
+    loginModal.classList.remove('opacity-0', 'pointer-events-none');
+    loginModal.classList.add('opacity-100');
+    setTimeout(() => {
+      loginModal.querySelector('div').classList.remove('scale-95', 'translate-y-4');
+    }, 100);
+  });
+
+  // Cerrar el modal de inicio de sesión al hacer clic fuera de él
+  document.getElementById('login-modal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('login-modal')) {
+      closeLoginModal();
+    }
+  });
+
+  // Función para cerrar el modal principal
+  function closeModal() {
+    const modal = document.getElementById('modal');
+    const modalContent = modal.querySelector('div');
+    
+    modalContent.classList.add('scale-95', 'translate-y-4'); // Agrega transformaciones para la salida
+    modal.classList.add('opacity-0'); // Agrega opacidad cero para ocultar el modal
+    modal.classList.add('pointer-events-none'); // Desactiva eventos mientras se oculta
+    setTimeout(() => {
+      modal.classList.add('hidden'); // Oculta el modal después de la transición
+    }, 100); // Debe coincidir con la duración de la transición
+  }
+
+  // Función para cerrar el modal de inicio de sesión
+  function closeLoginModal() {
+    const loginModal = document.getElementById('login-modal');
+    loginModal.querySelector('div').classList.add('scale-95', 'translate-y-4');
+    loginModal.classList.add('opacity-0');
+    loginModal.classList.add('pointer-events-none');
+    setTimeout(() => {
+      loginModal.classList.add('hidden');
+    }, 100); // Debe coincidir con la duración de la transición
+  }
+
+  // Abrir el modal de registro desde el modal de inicio de sesión
+  document.getElementById('register-link-2').addEventListener('click', (e) => {
+    e.preventDefault(); // Previene la acción por defecto del enlace
+    closeLoginModal(); // Cierra el modal de inicio de sesión
+    const registerModal = document.getElementById('register-modal');
+    registerModal.classList.remove('hidden');
+    registerModal.classList.remove('opacity-0', 'pointer-events-none');
+    registerModal.classList.add('opacity-100');
+    setTimeout(() => {
+      registerModal.querySelector('div').classList.remove('scale-95', 'translate-y-4');
+    }, 100);
+  });
+
+  // Función para abrir el modal de registro
+  document.getElementById('register-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('modal').classList.add('hidden');
+    document.getElementById('register-modal').classList.remove('hidden');
+    document.getElementById('register-modal').classList.remove('opacity-0', 'pointer-events-none'); 
+    document.getElementById('register-modal').classList.add('opacity-100'); 
+  });
+
+  
+
+  // Cerrar el modal de registro y mostrar modal de certificación completada
+  document.getElementById('register-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('register-modal').classList.add('hidden');
+    document.getElementById('final-modal').classList.remove('hidden');
+    document.getElementById('final-modal').classList.remove('opacity-0', 'pointer-events-none'); 
+    document.getElementById('final-modal').classList.add('opacity-100'); 
+  });
+
+  // Cerrar el modal de certificación completada
+  document.getElementById('close-final-btn').addEventListener('click', () => {
+    document.getElementById('final-modal').classList.add('hidden');
+  });
+
+  // Cerrar los modales al hacer clic fuera de ellos
+  const modals = document.querySelectorAll('.fixed');
+  modals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>

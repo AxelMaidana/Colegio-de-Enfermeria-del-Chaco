@@ -11,6 +11,10 @@ export default {
 		fontFamily: {
 			sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
 		},
+		boxShadow: {
+			customButton: '6px 6px 6px rgba(0, 0, 0, 0.25)',
+			custom: '0px 4px 6px rgba(0, 0, 0, 0.25)',
+		},
 		colors: {
 		  customBlue: '#187498',
 		  customGreen: '#36AE7C',

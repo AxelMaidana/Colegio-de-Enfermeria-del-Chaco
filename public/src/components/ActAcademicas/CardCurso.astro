@@ -2,7 +2,7 @@
 const { image, price, title, description, day, modality, hours, alt } = Astro.props;
 ---
 
-<div class="bg-gray-100 rounded-3xl shadow-md shadow-gray-400 overflow-hidden transition-all duration-500 hover:bg-customBlue group flex flex-col h-full">
+<div class="bg-gray-100 rounded-3xl shadow-custom shadow-black/40 overflow-hidden transition-all duration-500 hover:bg-customBlue group flex flex-col h-full">
   <!-- Imagen con gradiente aplicado -->
   <div class="relative w-full h-40 flex-shrink-0">
     <img src={image} alt={alt} class="w-full h-full object-cover" />
