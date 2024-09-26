@@ -2,7 +2,7 @@ export const cursos = {
   "cuidados-avanzados": {
     title: "Cuidados Avanzados en Pacientes Críticos",
     description: "Adquiere habilidades especializadas para brindar atención integral a pacientes en estado crítico. Este curso de 3 meses, dictado de manera sincrónica los sábados, está diseñado para fortalecer tus competencias en situaciones de alta complejidad clínica.",
-    image: "/media/imagen_curso_3.jpg",
+    image: "/media/imagen_curso_1.jpg",
     duration: "3 meses",
     alt: "Curso_1",
     hours: "18:00 a 20:00",
@@ -19,7 +19,7 @@ export const cursos = {
   "gestion-en-servicios-de-salud": {
     title: "Gestión en Servicios de Salud",
     description: "Aprende a gestionar eficazmente los servicios de salud en diversas instituciones. Un curso asincrónico de 2 meses, donde podrás avanzar a tu propio ritmo, adquiriendo conocimientos clave para liderar en el sector sanitario.",
-    image: "/media/imagen_curso_1.jpg",
+    image: "/media/imagen_curso_2.jpg",
     duration: "2 meses",
     alt: "Curso_2",
     hours: "A tu ritmo",
