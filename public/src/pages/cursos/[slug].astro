@@ -1,0 +1,143 @@
+---
+import Layout from '../../Layouts/Layout.astro';
+import Pastilla from '../../components/ActAcademicas/detalle/Pastilla.astro';
+import Banner from '../../components/ActAcademicas/detalle/Banner.astro';
+import TextoPDF from '../../components/ActAcademicas/TextoInformativo.astro';
+import SectionDocente from '../../components/ActAcademicas/detalle/SectionDocente.astro'; 
+import InfoExtra from '../../components/ActAcademicas/detalle/InfoExtra.astro';
+import CardSide from '../../components/ActAcademicas/detalle/CardSide.astro';
+import Certificado from '../../components/ActAcademicas/detalle/Certificado.astro';
+
+// src/pages/cursos/[slug].astro
+const { slug } = Astro.params;
+
+const cursos = {
+  "cuidados-avanzados": {
+    title: "Cuidados Avanzados en Pacientes Críticos",
+    description: "Lautaro no puso una descripcion de la tarea a realizar. Este texto es muy largo y debe ser cortado para que se vea bien en el componente.",
+    image: "/media/imagen_curso_1.jpg",
+    duration: "3 meses",
+    alt: "Curso_1",
+    hours: "18:00 a 20:00",
+    day: "Sábado",
+    modality: "Sincrónica",
+    price: "$12,000",
+    Teachers: [
+      {
+        name: "Lic. María Pérez",
+        description: "Enfermera con 15 años de experiencia en cuidados intensivos, especialista en atención de pacientes críticos y docente universitaria.",
+      },
+    ],
+  },
+  "gestion-en-servicios-de-salud": {
+    title: "Gestión en Servicios de Salud",
+    description: "Lautaro no puso una descripcion. Servicios de salud",
+    image: "/media/imagen_curso_2.jpg",
+    duration: "2 meses",
+    alt: "Curso_2",
+    hours: "A tu ritmo",
+    day: "A tu ritmo",
+    modality: "Asincrónica",
+    price: "$10,000",
+    Teachers: [
+      {
+        name: "Lic. Roberto López",
+        description: "Licenciado en Enfermería y Magíster en Administración de Servicios de Salud, cuenta con más de 12 años de experiencia en la gestión de hospitales y clínicas privadas.",
+      },
+      {
+        name: "Lic. Claudia Martínez",
+        description: "Especialista en Recursos Humanos y Gestión Hospitalaria, Claudia ha trabajado durante 10 años en la planificación y organización de servicios de salud.",
+      },
+    ],
+  },
+  "atencion-primaria-de-la-salud": {
+    title: "Atención Primaria de la Salud",
+    description: "Curso para atencion primaria de la salud.",
+    image: "/media/imagen_curso_3.jpg",
+    duration: "1 mes",
+    alt: "Curso_3",
+    hours: "16:00 a 19:00",
+    day: "Miércoles",
+    modality: "Sincrónica",
+    price: "$8,000",
+    Teachers: [
+      {
+        name: "Lic. Ana García",
+        description: "Especialista en Atención Primaria de la Salud, con más de 10 años de experiencia en áreas rurales y urbanas.",
+      },
+    ],
+  },
+  "terapia-intravenosa-manejo-del-dolor": {
+    title: "Terapia Intravenosa - Manejo del Dolor",
+    description: "Enfermera con 15 y docente en licenciatura.",
+    image: "/media/imagen_curso_4.jpeg",
+    duration: "6 semanas",
+    alt: "Curso_4",
+    hours: "A tu ritmo",
+    day: "A tu ritmo",
+    modality: "Asincrónica",
+    price: "$9,500",
+    Teachers: [
+      {
+        name: "Lic. Carolina Díaz",
+        description: "Con 8 años de experiencia en el área de terapia intravenosa y manejo del dolor y enfoque humanista en el cuidado del paciente.",
+      },
+    ],
+  },
+};
+
+const curso = cursos[slug];
+if (!curso) {
+  throw new Error("Curso no encontrado");
+}
+
+const hasSecondTeacher = curso.Teachers.length > 1; // Verificamos si hay un segundo docente
+---
+
+<Layout title={curso.title}>
+    <Pastilla/>
+    <Banner 
+      title={curso.title}
+      image={curso.image}
+      price={curso.price}
+      modality={curso.modality}    
+      duration={curso.duration}
+      description={curso.description}
+    />
+    <TextoPDF title="Descargar el contenido del curso" sizeText="text-md md:text-xl" borderRadius="rounded-3xl">
+      <a href="/media/Certificado.pdf" download="Certificado.pdf" class="text-md font-light underline">
+        Descargar el programa en <strong>PDF</strong>
+      </a>
+    </TextoPDF>
+    
+    <SectionDocente 
+      TitleSection="Profesores a cargo de la clase"
+      image1="https://i.pinimg.com/564x/25/ee/de/25eedef494e9b4ce02b14990c9b5db2d.jpg" 
+      alt=""
+      title1={curso.Teachers[0].name}
+      description1={curso.Teachers[0].description} 
+      { ...(hasSecondTeacher && {
+        image2: "https://i.pinimg.com/564x/25/ee/de/25eedef494e9b4ce02b14990c9b5db2d.jpg",
+        title2: curso.Teachers[1].name,
+        description2: curso.Teachers[1].description
+      })}
+    />
+    
+    <InfoExtra 
+      TitleSection="Información extra"
+      duration={curso.duration}
+      hours={curso.hours}
+      day={curso.day}
+      modality={curso.modality}
+    />
+
+    <CardSide 
+      title={curso.title}
+      hours={curso.hours}
+      day={curso.day}
+      modality={curso.modality}
+      price={curso.price}
+    />
+    
+    <Certificado/>
+</Layout>

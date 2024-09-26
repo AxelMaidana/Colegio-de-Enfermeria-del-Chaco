@@ -1,3 +1,7 @@
+---
+const { duration, hours, day, modality } = Astro.props;
+---
+
 <h2 class="font-bold md:text-start text-center text-2xl pl-4 md:pl-32 pt-6">Información Extra</h2>
 <div class="flex flex-col md:flex-row py-8 md:pl-40 justify-between items-center space-y-6 md:space-y-0">
   
@@ -26,22 +30,22 @@
     <div class="flex flex-col space-y-4 md:pl-3 pr:2 md:pr-64 py-3 px-4 text-start">
       <div class="flex">
         <span class="font-bold text-gray-700">Duración:</span>
-        <span class="ml-2">6 meses</span>
+        <span class="ml-2">{duration}</span>
       </div>
       <div class="block md:w-96 w-48 border-b border-gray-300/50 my-4"></div>
       <div class="flex">
         <span class="font-bold text-gray-700">Horarios:</span>
-        <span class="ml-2">10:00 a 12:00</span>
+        <span class="ml-2">{hours}</span>
       </div>
       <div class="block md:w-96 border-b border-gray-300/50 my-4"></div>
       <div class="flex">
         <span class="font-bold text-gray-700">Días:</span>
-        <span class="ml-2">Lunes a Viernes</span>
+        <span class="ml-2">{day}</span>
       </div>
       <div class="block md:w-96 border-b border-gray-300/50 my-4"></div>
       <div class="flex">
         <span class="font-bold text-gray-700">Modalidad:</span>
-        <span class="ml-2">Asincrónica</span>
+        <span class="ml-2">{modality}</span>
       </div>
     </div>
   </div>

@@ -16,6 +16,7 @@ const customIcon = L.icon({
 interface Location {
   id: number;
   name: string;
+  HorariosTitle: string;
   coordinates: [number, number];
   image: string;
   description: string;
@@ -25,24 +26,27 @@ interface Location {
 const locations: Location[] = [
   {
     id: 1,
-    name: 'Plaza 25 de Mayo asdasdasdasdasdasdasd',
-    coordinates: [-27.451388888889, -58.986666666667],
+    name: 'Av. Sarmiento 1234, Resistencia, Chaco',
+    HorariosTitle: 'Horarios de Atención',
+    coordinates: [-27.4415279, -58.9754083],
     image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/mapa.png?raw=true',
-    description: 'La plaza más grande de la ciudad de Resistencia, con una vista panorámica sobre el centro de la ciudad.',
+    description: 'Lunes a viernes de 08:30 a 13:00 hs y 16:00 a 20:30 hs',
   },
   {
     id: 2,
-    name: 'Gala Hotel & Convenciones',
-    coordinates: [-27.4471334, -59.0225217],
+    name: 'French 414, Resistencia, Chaco',
+    HorariosTitle: 'Horarios de Atención',
+    coordinates: [-27.4511178, -58.9790227],
     image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/mapa.png?raw=true',
-    description: 'El hotel más grande de la ciudad de Resistencia, con una gran variedad de servicios y actividades.',
+    description: 'Lunes a viernes de 09:00 a 13:00 hs y 16:30 a 20:30 hs',
   },
   {
     id: 3,
-    name: 'Le Utthe asdasdsad asdasdasdsa',
-    coordinates: [-27.4505352, -58.9904593],
+    name: 'San Fernando 156, Resistencia, Chaco',
+    HorariosTitle: 'Horarios de Atención',
+    coordinates: [-27.4413643, -58.9949152],
     image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/mapa.png?raw=true',
-    description: 'La tienda de ropa mas conocida en la ciudad de Resistencia, con una gran variedad de ropa y accesorios.',
+    description: 'Lunes a viernes de 09:00 a 13:00 hs y 16:00 a 20:00 hs',
   },
 ];
 
@@ -114,8 +118,8 @@ export default function LocationMap() {
           {/* Tercera columna: Descripción de la ubicación */}
           <div className="flex-shrink-0 w-full md:w-1/4 order-3 md:order-2">
             <div className="p-4 rounded-lg text-white text-center md:text-start">
-              <h4 className="text-2xl font-semibold">{selectedLocation.name}</h4>
-              <p className="text-white opacity-90 mt-2 break-words">
+              <h4 className="text-2xl font-bold">{selectedLocation.HorariosTitle}</h4>
+              <p className="text-white opacity-85 mt-2 break-words text-md font-medium">
                 {selectedLocation.description}
               </p>
             </div>

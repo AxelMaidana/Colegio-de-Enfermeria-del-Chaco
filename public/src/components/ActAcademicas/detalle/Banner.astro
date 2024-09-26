@@ -1,19 +1,19 @@
 ---
-import InscripcionModal from './Form.astro'
-
+// src/components/ActAcademicas/detalle/Banner.astro
+const { title, image, price, modality, duration, description } = Astro.props;
 ---
 
 <div class="bg-gray-100 mx-4 sm:mx-10 md:mx-20 lg:mx-32 xl:mx-52 rounded-3xl overflow-hidden">
   <!-- Imagen con gradiente aplicado -->
   <div class="relative w-auto md:h-[600px] overflow-hidden">
-    <img src="https://advantecnia.com/wp-content/uploads/2023/07/Funciones-de-una-enfermera-en-un-hospital-1.jpg" alt="Image description" class="w-full h-full object-cover" />
+    <img src={image} alt={`Imagen de ${title}`} class="w-full h-full object-cover" />
     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
   </div>
 
   <!-- Contenedor de información -->
   <div class="bg-white p-4 relative">
     <div class="relative z-10">
-      <h1 class="text-7xl font-bold mb-2">Lorem Ipsum</h1>
+      <h1 class="md:text-7xl text-5xl font-bold mb-2">{title}</h1>
       <div class="flex flex-wrap gap-8 my-6">
         <!-- Contenedor del botón -->
         <div>
@@ -23,16 +23,22 @@ import InscripcionModal from './Form.astro'
         </div>
 
         <!-- Contenedor de los spans -->
-        <div class="flex gap-3 justify-end items-center">
-          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">$100.000</span>
-          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">Asincronico</span>
-          <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">6 Meses</span>
+          <div class="flex flex-wrap gap-3 md:justify-end items-center">
+            <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">
+              {price}
+            </span>
+            <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">
+              {modality}
+            </span>
+            <span class="text-customCyan px-3 py-1 border-solid border-2 border-customCyan rounded-lg text-lg font-semibold">
+              {duration}
+            </span>
+          </div>
         </div>
-      </div>
 
       <h3 class="text-black text-xl font-bold mb-2">Descripción</h3>
       <p class="text-gray-900 mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit...
+        {description}
       </p>
     </div>
   </div>
