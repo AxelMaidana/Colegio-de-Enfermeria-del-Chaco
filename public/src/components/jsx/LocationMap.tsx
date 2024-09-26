@@ -29,7 +29,7 @@ const locations: Location[] = [
     name: 'Av. Sarmiento 1234, Resistencia, Chaco',
     HorariosTitle: 'Horarios de Atención',
     coordinates: [-27.4415279, -58.9754083],
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/mapa.png?raw=true',
+    image: '/media/mapa.png',
     description: 'Lunes a viernes de 08:30 a 13:00 hs y 16:00 a 20:30 hs',
   },
   {
@@ -37,7 +37,7 @@ const locations: Location[] = [
     name: 'French 414, Resistencia, Chaco',
     HorariosTitle: 'Horarios de Atención',
     coordinates: [-27.4511178, -58.9790227],
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/mapa.png?raw=true',
+    image: '/media/mapa.png',
     description: 'Lunes a viernes de 09:00 a 13:00 hs y 16:30 a 20:30 hs',
   },
   {
@@ -45,7 +45,7 @@ const locations: Location[] = [
     name: 'San Fernando 156, Resistencia, Chaco',
     HorariosTitle: 'Horarios de Atención',
     coordinates: [-27.4413643, -58.9949152],
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/mapa.png?raw=true',
+    image: '/media/mapa.png',
     description: 'Lunes a viernes de 09:00 a 13:00 hs y 16:00 a 20:00 hs',
   },
 ];
@@ -66,7 +66,7 @@ export default function LocationMap() {
     // Sección principal con fondo y capa de opacidad
     <section 
       className="relative bg-cover bg-center pt-12 pb-28" 
-      style={{ backgroundImage: "url('https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/mapa.png?raw=true')" }}
+      style={{ backgroundImage: "url('/media/mapa.png')" }}
     >
       {/* Capa de opacidad */}
       <div className="absolute inset-0 bg-black opacity-70"></div>

@@ -3,51 +3,51 @@ import InfiniteCarrousel from '../jsx/InfiniteCarrousel.tsx';
 import LocationMap from '../jsx/LocationMap.tsx';
 
 const cards = [
-  {
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
-    date: '01/02/24',
+{
+    image: '/media/image1.png',
+    date: '01/04/24',
     title: 'Lorem ipsum dolor sit',
     description: 'Descripción breve de la noticia...',
   },
   {
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image3.png?raw=true',
+    image: '/media/image3.png',
     date: '01/03/24',
     title: 'Lorem ipsum dolor sit',
     description: 'Descripción breve de la noticia...',
   },
   {
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    image: '/media/image1.png',
     date: '01/04/24',
     title: 'Lorem ipsum dolor sit',
     description: 'Descripción breve de la noticia...',
   },
   {
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    image: '/media/image3.png',
+    date: '01/03/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
+  {
+    image: '/media/image1.png',
     date: '01/04/24',
     title: 'Lorem ipsum dolor sit',
     description: 'Descripción breve de la noticia...',
   },
   {
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
+    image: '/media/image3.png',
+    date: '01/03/24',
+    title: 'Lorem ipsum dolor sit',
+    description: 'Descripción breve de la noticia...',
+  },
+  {
+    image: '/media/image1.png',
     date: '01/04/24',
     title: 'Lorem ipsum dolor sit',
     description: 'Descripción breve de la noticia...',
   },
   {
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
-    date: '01/04/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
-  {
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
-    date: '01/04/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
-  {
-    image: 'https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/image1.png?raw=true',
-    date: '01/04/24',
+    image: '/media/image3.png',
+    date: '01/03/24',
     title: 'Lorem ipsum dolor sit',
     description: 'Descripción breve de la noticia...',
   },
@@ -55,7 +55,7 @@ const cards = [
 ---
 <!-- Sección de noticia destacada -->
 <section class="relative w-full h-[30rem] -mt-8 z-10">
-  <img src="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/banner.png?raw=true" alt="Imagen principal" class="absolute top-0 left-0 w-full h-full object-cover z-0" />
+  <img src="/media/banner.png" alt="Imagen principal" class="absolute top-0 left-0 w-full h-full object-cover z-0" />
   <div class="relative z-10 flex flex-col items-center justify-center h-full text-left md:text-center text-white p-4 md:p-6 bg-black bg-opacity-50">
     <h2 class="text-2xl md:text-4xl font-bold -mt-6 md:-mt-8">Colegio de Enfermería del Chaco</h2>
     <p class="mt-4 md:mt-6 text-base md:text-lg max-w-full md:max-w-4xl px-4 md:px-0">
@@ -90,7 +90,8 @@ educación de calidad y ser el puente entre la teoría y la práctica.
       <div>
         <h3 class="text-3xl md:text-6xl font-bold text-center md:text-left md:mb-4 ">¡Contáctanos!</h3>
         <p class="mb-6 mx-6 max-w-68 md:max-w-xl mt-8 text-left">¿Tienes alguna consulta o necesitas más información
-          sobre nuestros cursos y servicios? Completa el formulario y nos pondremos en
+          sobre nuestros cursos y servicios? 
+          <br>Completa el formulario y nos pondremos en
           contacto contigo a la brevedad.
 
         </p>
@@ -110,13 +111,13 @@ educación de calidad y ser el puente entre la teoría y la práctica.
 
 <!-- Imagen en la segunda columna -->
           <div class="flex-shrink-0">
-            <img src="https://github.com/AxelMaidana/Colegio-de-Enfermeria-del-Chaco/blob/master/public/src/media/subir%20imagen.jpeg?raw=true" alt="Descripción de la imagen" class="md:w-80 w-full h-auto rounded-xl shadow-md">
+            <img src="/media/subir imagen.jpeg" alt="Descripción de la imagen" class="md:w-80 w-full h-auto rounded-xl shadow-md">
           </div>
         </div>
 
 <!-- Botón centrado -->
         <div class="flex justify-center mt-6">
-          <button type="submit" class="w-full md:w-72 bg-customGreen text-white py-3 px-6 rounded-3xl hover:scale-105 transition-transform">Enviar</button>
+          <button type="submit" class="w-full md:w-72 bg-customGreen font-medium text-white py-3 px-6 rounded-3xl hover:scale-105 transition-transform">Enviar</button>
         </div>
       </div>
 
