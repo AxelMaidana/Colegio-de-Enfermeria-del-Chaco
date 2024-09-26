@@ -1,63 +1,13 @@
 ---
 import CardCurso from './CardCurso.astro';
-
-const cursos = [
-  {
-    slug: "cuidados-avanzados",
-    title: "Cuidados Avanzados en Pacientes Críticos",
-    description: "Lautaro no puso una descripcion de la tarea a realizar. Este texto es muy largo y debe ser cortado para que se vea bien en el componente.",
-    image: "/media/imagen_curso_1.jpg",
-    duration: "3 meses",
-    alt: "Curso_1",
-    hours: "18:00 a 20:00",
-    day: "Sábado",
-    modality: "Sincrónica",
-    price: "$12,000",
-  },
-  {
-    slug: "gestion-en-servicios-de-salud",
-    title: "Gestión en Servicios de Salud",
-    description: "Lautaro no puso una descripcion. Servicios de salud",
-    image: "media/imagen_curso_2.jpg",
-    duration: "2 meses",
-    alt: "Curso_2",
-    hours: "A tu ritmo",
-    day: "A tu ritmo",
-    modality: "Asincrónica",
-    price: "$10,000",
-  },
-  {
-    slug: "atencion-primaria-de-la-salud",
-    title: "Atención Primaria de la Salud",
-    description: "Curso para atencion primaria de la salud.",
-    image: "media/imagen_curso_3.jpg",
-    duration: "1 mes",
-    alt: "Curso_3",
-    hours: "16:00 a 19:00",
-    day: "Miércoles",
-    modality: "Sincrónica",
-    price: "$8,000",
-  },
-  {
-    slug: "terapia-intravenosa-manejo-del-dolor",
-    title: "Terapia Intravenosa - Manejo del Dolor",
-    description: "Enfermera con 15 y docente en licenciatura.",
-    image: "media/imagen_curso_4.jpeg",
-    duration: "6 semanas",
-    alt: "Curso_4",
-    hours: "A tu ritmo",
-    day: "A tu ritmo",
-    modality: "Asincrónica",
-    price: "$9,500",
-  },
-];
+import { cursos } from '../js/cursos.js';
 ---
 
 <div class="container mx-auto pb-20">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-    {cursos.map(curso => (
+    {Object.entries(cursos).map(([slug, curso]) => (
       <div class="flex justify-center">
-        <a href={`/cursos/${curso.slug}`}>
+        <a href={`/cursos/${slug}`}>
           <CardCurso 
             title={curso.title}
             description={curso.description}
