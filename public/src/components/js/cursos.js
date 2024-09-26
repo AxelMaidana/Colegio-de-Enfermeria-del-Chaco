@@ -19,7 +19,7 @@ export const cursos = {
   "gestion-en-servicios-de-salud": {
     title: "Gestión en Servicios de Salud",
     description: "Aprende a gestionar eficazmente los servicios de salud en diversas instituciones. Un curso asincrónico de 2 meses, donde podrás avanzar a tu propio ritmo, adquiriendo conocimientos clave para liderar en el sector sanitario.",
-    image: "/media/imagen_curso_2.jpg",
+    image: "/media/imagen_curso_1.jpg",
     duration: "2 meses",
     alt: "Curso_2",
     hours: "A tu ritmo",
