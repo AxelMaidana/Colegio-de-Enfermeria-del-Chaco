@@ -30,7 +30,7 @@ const { title, image, price, modality, duration, description } = Astro.props;
 </div>
 
 <!-- Modal principal -->
-<div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+<div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 h-screen opacity-0 pointer-events-none transition-opacity duration-300">
   <div class="bg-customCyan text-customBlack p-6 sm:p-8 md:p-10 rounded-3xl shadow-lg max-w-lg w-full transform transition-transform duration-300 scale-95 translate-y-4">
     <h1 class="text-4xl sm:text-6xl md:text-7xl text-center font-extrabold mt-2 mb-6">¡Hola!👋</h1>
     <h2 class="text-xl sm:text-4xl text-center font-extrabold mb-4">PARECE QUE NO HAS INICIADO SESIÓN</h2>
@@ -150,7 +150,7 @@ const { title, image, price, modality, duration, description } = Astro.props;
     modal.classList.add('pointer-events-none'); // Desactiva eventos mientras se oculta
     setTimeout(() => {
       modal.classList.add('hidden'); // Oculta el modal después de la transición
-    }, 10); // Debe coincidir con la duración de la transición
+    },); // Debe coincidir con la duración de la transición
   }
 
   // Función para cerrar el modal de inicio de sesión
@@ -161,7 +161,7 @@ const { title, image, price, modality, duration, description } = Astro.props;
     loginModal.classList.add('pointer-events-none');
     setTimeout(() => {
       loginModal.classList.add('hidden');
-    }, 10); // Debe coincidir con la duración de la transición
+    },); // Debe coincidir con la duración de la transición
   }
 
   // Abrir el modal de registro desde el modal de inicio de sesión
