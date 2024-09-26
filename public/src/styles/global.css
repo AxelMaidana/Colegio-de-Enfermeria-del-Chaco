@@ -2,11 +2,6 @@
 /* src/styles/globals.css */
 @import '@fontsource-variable/montserrat'; /* Importa la variable de Montserrat */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 html, body {
   font-family: 'Montserrat Variable', sans-serif;
   max-width: 100%;
