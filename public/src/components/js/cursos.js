@@ -2,7 +2,7 @@ export const cursos = {
   "cuidados-avanzados": {
     title: "Cuidados Avanzados en Pacientes Críticos",
     description: "Adquiere habilidades especializadas para brindar atención integral a pacientes en estado crítico. Este curso de 3 meses, dictado de manera sincrónica los sábados, está diseñado para fortalecer tus competencias en situaciones de alta complejidad clínica.",
-    image: "/media/imagen_curso_1.jpg",
+    image: "/media/imagen_curso_3.jpg",
     duration: "3 meses",
     alt: "Curso_1",
     hours: "18:00 a 20:00",
@@ -55,7 +55,7 @@ export const cursos = {
     ],
   },
   "terapia-intravenosa-manejo-del-dolor": { 
-    title: "Terapia Intravenosa - Manejo del Dolor", 
+    title: "Terapia Intravenosa y Manejo del Dolor", 
     description: "Mejora tus habilidades en el manejo del dolor mediante terapia intravenosa. Un curso de 6 semanas, completamente asincrónico, que te permitirá aprender de manera flexible y a tu propio ritmo.",    
     image: "/media/imagen_curso_4.jpeg", 
     duration: "6 semanas",
