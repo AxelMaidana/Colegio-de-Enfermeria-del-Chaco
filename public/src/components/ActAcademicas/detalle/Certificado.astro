@@ -167,7 +167,7 @@ import Boton from '../../layout/Reusable/Boton.astro';
         modal.classList.add('opacity-0', 'pointer-events-none');
         setTimeout(() => {
             modal.classList.add('hidden');
-        }, 100);
+        },10);
     }
 
     // Función para cerrar el modal de pago
@@ -180,7 +180,7 @@ import Boton from '../../layout/Reusable/Boton.astro';
         loginModal.classList.add('opacity-0', 'pointer-events-none');
         setTimeout(() => {
             loginModal.classList.add('hidden');
-        }, 100);
+        }, 10);
     }
     
     // Abrir el modal de certificación completada al hacer clic en "FINALIZAR CERTIFICACIÓN"
@@ -194,7 +194,7 @@ import Boton from '../../layout/Reusable/Boton.astro';
         setTimeout(() => {
             const modalContent = modal.querySelector('div');
             if (modalContent) modalContent.classList.remove('scale-95', 'translate-y-4');
-        }, 10);
+        }, 100);
     });
 
     // Cerrar el modal de certificación completada al hacer clic en "CONTINUAR"
@@ -221,7 +221,7 @@ function closeStepThreeModal() {
     modal.classList.add('opacity-0', 'pointer-events-none');
     setTimeout(() => {
         modal.classList.add('hidden');
-    }, 100);
+    }, 10);
 }
 
 
