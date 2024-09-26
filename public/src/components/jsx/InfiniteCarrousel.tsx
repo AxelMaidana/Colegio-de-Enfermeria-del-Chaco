@@ -1,14 +1,14 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react'
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 
 interface CardProps {
-  image: string
-  date: string
-  title: string
-  description: string
+  image: string;
+  date: string;
+  title: string;
+  description: string;
 }
 
 const Card: React.FC<CardProps & { isFocused: boolean }> = ({ image, date, title, description, isFocused }) => (
-  <article className={`bg-customBlue shadow-md p-1 rounded-2xl w-64 mx-2 my-6 flex-shrink-0 transition-all duration-300 ease-in-out overflow-visible ${isFocused ? 'opacity-100 scale-100' : 'opacity-50 scale-90'}`}>
+  <article className={`bg-customBlue shadow-md p-1 rounded-2xl w-72 mx-2 my-6 flex-shrink-0 transition-all duration-300 ease-in-out overflow-visible ${isFocused ? 'opacity-80 scale-100' : 'opacity-30 scale-90'}`}>
     <div className="relative">
       <img src={image} alt={title} className="w-full h-48 object-cover rounded-t-xl border-2 border-customBlue" />
       <div className="absolute top-[-20px] left-1/2 transform -translate-x-1/2 bg-customBlue text-white text-sm px-4 py-1 rounded-full">
@@ -18,54 +18,71 @@ const Card: React.FC<CardProps & { isFocused: boolean }> = ({ image, date, title
     <h4 className="text-lg font-semibold mt-2 text-center text-white">{title}</h4>
     <p className="text-center text-white opacity-80">{description}</p>
   </article>
-)
+);
 
 interface InfiniteCarouselProps {
-  cards: CardProps[]
+  cards: CardProps[];
 }
 
 export default function InfiniteCarousel({ cards }: InfiniteCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const carouselRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0); // State to track the current index
+  const [isAnimating, setIsAnimating] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Effect to set initial index based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) { // md: screen size
+        setCurrentIndex(3); // Start from index 5 in desktop mode
+      } else {
+        setCurrentIndex(0); // Start from index 0 in mobile mode
+      }
+    };
+
+    handleResize(); // Set initial index
+    window.addEventListener('resize', handleResize); // Update on resize
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const moveCarousel = useCallback((direction: 'left' | 'right') => {
-    if (isAnimating || cards.length === 0) return
+    if (isAnimating || cards.length === 0) return;
 
-    setIsAnimating(true)
+    setIsAnimating(true);
     setCurrentIndex((prevIndex) => {
-      let newIndex = direction === 'left' ? prevIndex - 1 : prevIndex + 1
-      if (newIndex < 0) newIndex = cards.length - 1
-      if (newIndex >= cards.length) newIndex = 0
-      return newIndex
-    })
+      let newIndex = direction === 'left' ? prevIndex - 1 : prevIndex + 1;
 
-    setTimeout(() => setIsAnimating(false), 300)
-  }, [cards.length, isAnimating])
+      if (newIndex < 0) newIndex = cards.length - 1; // Move to last card
+      if (newIndex >= cards.length) newIndex = 0; // Move to first card
+      return newIndex;
+    });
+
+    setTimeout(() => setIsAnimating(false), 300);
+  }, [cards.length, isAnimating]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') moveCarousel('left')
-      if (event.key === 'ArrowRight') moveCarousel('right')
-    }
+      if (event.key === 'ArrowLeft') moveCarousel('left');
+      if (event.key === 'ArrowRight') moveCarousel('right');
+    };
 
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [moveCarousel])
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [moveCarousel]);
 
   useEffect(() => {
     if (carouselRef.current) {
-      const cardWidth = 272 // 256px (card width) + 16px (margin)
-      const scrollPosition = currentIndex * cardWidth - (window.innerWidth - cardWidth) / 2
+      const cardWidth = 272; // 256px (card width) + 16px (margin)
+      const scrollPosition = currentIndex * cardWidth - (window.innerWidth / 2 - cardWidth / 2); // Center the focused card
       carouselRef.current.scrollTo({
         left: scrollPosition,
         behavior: 'smooth'
-      })
+      });
     }
-  }, [currentIndex])
+  }, [currentIndex]);
 
   if (cards.length === 0) {
-    return <div className="text-center text-gray-500">No hay tarjetas disponibles</div>
+    return <div className="text-center text-gray-500">No hay tarjetas disponibles</div>;
   }
 
   return (
@@ -75,13 +92,11 @@ export default function InfiniteCarousel({ cards }: InfiniteCarouselProps) {
         className="flex overflow-x-hidden snap-x snap-mandatory md:justify-center"
         style={{ 
           scrollSnapType: 'x mandatory',
-          paddingLeft: 'calc(50% - 136px)', // Half of the viewport minus half of the card width
-          paddingRight: 'calc(50% - 136px)'
         }}
       >
         {cards.map((card, index) => (
-          <div key={`${card.title}-${index}`} className="w-64 flex-shrink-0 snap-center">
-            <Card {...card} isFocused={index === currentIndex} />
+          <div key={`${card.title}-${index}`} className="w-auto flex-shrink-0 snap-center">
+            <Card {...card} isFocused={index === currentIndex} /> {/* Use currentIndex directly */}
           </div>
         ))}
       </div>
@@ -100,5 +115,5 @@ export default function InfiniteCarousel({ cards }: InfiniteCarouselProps) {
         <span className="text-2xl font-bold text-gray-600">&gt;</span>
       </button>
     </div>
-  )
+  );
 }

@@ -45,12 +45,7 @@ const cards = [
     title: 'Lorem ipsum dolor sit',
     description: 'Descripción breve de la noticia...',
   },
-  {
-    image: '/media/image3.png',
-    date: '01/03/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
+
 ];
 ---
 <!-- Sección de noticia destacada -->
@@ -67,14 +62,14 @@ educación de calidad y ser el puente entre la teoría y la práctica.
 </section>
 
   <!-- Sección de últimas noticias -->
-<section class="mt-8">
-  <div class="relative mx-0 w-max z-10">
-    <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white md:px-8 px-8 py-2.5 rounded-r-full text-center">Últimas Noticias</h3>
-  </div>
-  <div class="overflow-hidden">
-    <InfiniteCarrousel client:load cards={cards} />
-  </div>
-</section>
+  <section class="mt-8">
+    <div class="relative mx-0 w-max z-10">
+      <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white md:px-8 px-8 py-2.5 rounded-r-full justify-center text-center">Últimas Noticias</h3>
+    </div>
+    <div class="overflow-hidden">
+      <InfiniteCarrousel client:load cards={cards} />
+    </div>
+  </section>
 
  
 
