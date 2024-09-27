@@ -1,52 +1,6 @@
 ---
 import InfiniteCarrousel from '../jsx/InfiniteCarrousel.tsx';
 import LocationMap from '../jsx/LocationMap.tsx';
-
-const cards = [
-{
-    image: '/media/image1.png',
-    date: '01/04/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
-  {
-    image: '/media/image3.png',
-    date: '01/03/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
-  {
-    image: '/media/image1.png',
-    date: '01/04/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
-  {
-    image: '/media/image3.png',
-    date: '01/03/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
-  {
-    image: '/media/image1.png',
-    date: '01/04/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
-  {
-    image: '/media/image3.png',
-    date: '01/03/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
-  {
-    image: '/media/image1.png',
-    date: '01/04/24',
-    title: 'Lorem ipsum dolor sit',
-    description: 'Descripción breve de la noticia...',
-  },
-
-];
 ---
 <!-- Sección de noticia destacada -->
 <section class="relative w-full h-[30rem] -mt-8 z-10">
@@ -61,18 +15,18 @@ educación de calidad y ser el puente entre la teoría y la práctica.
   </div>
 </section>
 
-  <!-- Sección de últimas noticias -->
-  <section class="mt-8">
-    <div class="relative mx-0 w-max z-10">
-      <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white md:px-8 px-8 py-2.5 rounded-r-full justify-center text-center">Últimas Noticias</h3>
-    </div>
-    <div class="overflow-hidden">
-      <InfiniteCarrousel client:load cards={cards} />
-    </div>
-  </section>
 
- 
-
+<!-- Sección de últimas noticias -->
+<section class="mt-8">
+  <div class="relative mx-0 w-max z-10">
+    <h3 class="text-2xl font-bold mb-6 bg-customGreen text-white md:px-8 px-6 py-2.5 rounded-r-full text-center">
+      Últimas Noticias
+    </h3>
+  </div>
+  <div class="overflow-hidden">
+    <InfiniteCarrousel client:load />
+  </div>
+</section>
 
 <!-- Seccion de Ubicacion con mapa interactivo -->
   <LocationMap client:only="react" />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap, AttributionControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -49,6 +49,8 @@ const locations: Location[] = [
     description: 'Lunes a viernes de 09:00 a 13:00 hs y 16:00 a 20:00 hs',
   },
 ];
+
+
 
 // Componente para actualizar la vista del mapa
 function ChangeView({ center }: { center: [number, number] }) {
@@ -107,7 +109,9 @@ export default function LocationMap() {
           {/* Segunda columna: Mapa interactivo */}
           <div className="flex-grow w-full md:w-2/3 order-1">
             <div className="relative bg-customBlue p-1 rounded-lg shadow-md">
-              <MapContainer center={selectedLocation.coordinates} zoom={14} style={{ height: '400px', width: '100%' }}>
+              <MapContainer center={selectedLocation.coordinates} zoom={14} style={{ height: '400px', width: '100%' }}
+              attributionControl={false}
+              >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 <Marker position={selectedLocation.coordinates} icon={customIcon} />
                 <ChangeView center={selectedLocation.coordinates} />
