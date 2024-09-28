@@ -3,58 +3,103 @@
 ---
 
 <!-- Menú de navegación -->
-<nav class="bg-customGreen text-sm font-bold flex self-end md:justify-center md:items-center rounded-l-xl md:rounded-none md:rounded-b-xl shadow-lg w-8 md:w-full z-50 relative">
-  <div class="container mx-auto py-1 flex justify-end w-full">
+<nav class="bg-customGreen text-sm font-bold flex self-end md:justify-center lg:items-center rounded-l-xl lg:rounded-none lg:rounded-b-xl shadow-lg w-8 lg:w-full z-50 relative">
+  <div class="container mx-auto py-1 flex justify-center items-center">
     <!-- Botón del menú para dispositivos móviles -->
-    <button class="block md:hidden text-white focus:outline-none" id="menu-toggle">
+    <button class="block lg:hidden text-white focus:outline-none" id="menu-toggle">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
 
-      <!-- Menú de navegación para escritorio -->
-      <ul class="hidden md:flex md:justify-between md:w-full text-white space-x-1">
-        <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/institucional" class="block transform hover:scale-105  transition-transform duration-100 hover:underline text-white py-2 px-4">INSTITUCIONAL</a>
-        </li>
-        <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/dictamenes" class="block transform hover:scale-105  transition-transform duration-100 hover:underline text-white py-2 px-4">DICTAMENES</a>
-        </li>
-        <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/matriculados" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">MATRICULADOS ACTIVOS</a>
-        </li>
-        <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/novedades" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">NOVEDADES</a>
-        </li>
-        <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/nombramientos" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">NOMBRAMIENTOS</a>
-        </li>
-        <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/tramites" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">TRAMITES</a>
-        </li>
-        <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/becas" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">BECAS</a>
-        </li>
-        <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
-          <a href="/cursos" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">ACT. ACADEMICAS</a>
-        </li>
-        <li class="flex-grow text-center">
-          <a href="/contacto" class="block transform hover:scale-105 transition-transform duration-100 hover:underline text-white py-2 px-4">CONTACTO</a>
-        </li>
-      </ul>
+     <!-- Menú de navegación para escritorio -->
+<!-- Menú de navegación para escritorio -->
+<ul class="hidden lg:flex lg:justify-between lg:w-full text-white space-x-1">
+  <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
+    <a href="/institucional" class="
+    block transform hover:scale-105 hover:underline transition-transform duration-100  
+    text-white text-xs whitespace-nowrap | 2xl:text-sm
+    py-1 px-2">
+      INSTITUCIONAL
+    </a> 
+  </li>
+  <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
+    <a href="/dictamenes" class="
+    block transform hover:scale-105 hover:underline transition-transform duration-100 
+    text-white text-xs whitespace-nowrap | 2xl:text-sm
+    py-1 px-2">
+    DICTÁMENES
+    </a>
+  </li>
+  <li class="flex-grow text-center justify-center border-r border-black border-opacity-20 last:border-0">
+    <a href="/matriculados" class="
+    block transform hover:scale-105 hover:underline transition-transform duration-100 
+    text-white text-xs whitespace-nowrap | 2xl:text-sm
+    py-1 px-2">
+    MATRICULADOS ACTIVOS
+    </a>
+  </li>
+  <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
+    <a href="/novedades" class="
+    block transform hover:scale-105 hover:underline transition-transform duration-100 
+    text-white text-xs whitespace-nowrap | 2xl:text-sm
+    py-1 px-2">
+    NOVEDADES
+    </a>
+  </li>
+  <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
+    <a href="/nombramientos" class="
+    block transform hover:scale-105 hover:underline transition-transform duration-100 
+    text-white text-xs whitespace-nowrap | 2xl:text-sm
+    py-1 px-2">
+    NOMBRAMIENTOS
+    </a>
+  </li>
+  <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
+    <a href="/tramites" class="
+    block transform hover:scale-105 hover:underline transition-transform duration-100 
+    text-white text-xs whitespace-nowrap | 2xl:text-sm
+    py-1 px-2">
+    TRÁMITES
+    </a>
+  </li>
+  <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
+    <a href="/becas" class="
+    block transform hover:scale-105 hover:underline transition-transform duration-100 
+    text-white text-xs whitespace-nowrap | 2xl:text-sm
+    py-1 px-2">
+    BECAS
+    </a>
+  </li>
+  <li class="flex-grow text-center border-r border-black border-opacity-20 last:border-0">
+    <a href="/cursos" class="
+    block transform hover:scale-105 transition-transform duration-100  hover:underline
+    text-white text-xs whitespace-nowrap | 2xl:text-sm
+    py-1 px-2">
+    ACT. ACADÉMICAS
+    </a>
+  </li>
+  <li class="flex-grow text-center">
+    <a href="/contacto" class="
+    block transform hover:scale-105 transition-transform duration-100  hover:underline
+    text-white text-xs whitespace-nowrap | 2xl:text-sm
+    py-1 px-2">
+    CONTACTO
+    </a>
+  </li>
+</ul>
+
+
   </div>
 </nav>
 
 
-  <!-- Menú desplegable para móviles -->
-<div class="fixed top-0 right-0 h-screen bg-customGreen w-full max-w-xs shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 rounded-l-2xl" id="mobile-menu">
-  <button class="absolute top-4 right-4 text-white text-3xl" id="menu-close">
-    &times;
-  </button>
+ <!-- Menú desplegable para móviles -->
+<div class="fixed top-0 right-0 h-screen bg-customGreen w-full max-w-[300px] shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 rounded-l-2xl" id="mobile-menu">
+  <button class="absolute top-4 right-4 text-white text-3xl" id="menu-close">&times;</button>
   <ul class="mt-16 text-white space-y-1">
     <li>
       <a href="/institucional" class="flex items-center m-4 py-4 px-6 hover:bg-green-300 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
-        <!-- Icono de Institucional -->
         <svg  xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-buildings">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 21v-15c0 -1 1 -2 2 -2h5c1 0 2 1 2 2v15" /><path d="M16 8h2c1 0 2 1 2 2v11" /><path d="M3 21h18" /><path d="M10 12v0" /><path d="M10 16v0" /><path d="M10 8v0" /><path d="M7 12v0" /><path d="M7 16v0" /><path d="M7 8v0" /><path d="M17 12v0" /><path d="M17 16v0" /></svg>
         Institucional

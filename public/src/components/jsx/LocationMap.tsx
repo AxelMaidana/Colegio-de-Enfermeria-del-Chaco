@@ -107,7 +107,7 @@ export default function LocationMap() {
           </div>
 
           {/* Segunda columna: Mapa interactivo */}
-          <div className="flex-grow w-full md:w-2/3 order-1">
+          <div className="flex-grow w-full md:w-2/3 order-1 z-30">
             <div className="relative bg-customBlue p-1 rounded-lg shadow-md">
               <MapContainer center={selectedLocation.coordinates} zoom={14} style={{ height: '400px', width: '100%' }}
               attributionControl={false}

@@ -4,24 +4,48 @@ const { logoSrc, titleLine1, titleLine2, registerButtonText, loginButtonText } =
 ---
 
 <header class="bg-customBlue text-white py-2">
-  <div class="container mx-auto flex flex-row justify-between items-center px-2 space-x-0">
+  <div class="container flex flex-row justify-between items-center mx-auto px-2 space-x-0">
     <!-- Logo y Título en columna en pantallas pequeñas y fila en pantallas grandes -->
-    <div class="flex gap-2 md:gap-4 items-center text-left md:flex-row md:items-center">
+    <div class="flex items-center text-left | md:flex-row md:items-center gap-2 | md:gap-4">
       <!-- Logo con tamaño ajustado para pantallas móviles -->
-      <a href="/"><img src={logoSrc} alt="Logo CECH" class="h-14 w-auto md:h-20" /></a>
+      <a href="/">
+        <img src={logoSrc} alt="Logo CECH" class="h-14 w-auto sm:h-[4.5rem] md:h-20 lg:h-24" />
+      </a>
       <!-- Título alineado a la derecha de la imagen en móviles -->
-      <a href="/"><h1 class="text-left md:text-left text-xs md:text-xl font-medium leading-tight md:leading-tight tracking-wide">
-        {titleLine1}<br />
-        <span class="block text-left md:text-left">{titleLine2}</span>
-      </h1></a>
+      <a href="/">
+        <h1 class="text-left text-xs tracking-wide font-medium leading-tight 
+          sm:text-lg sm:leading-5
+          md:text-xl md:leading-6 
+          lg:text-2xl lg:leading-7">
+          {titleLine1}
+          <br />
+          <span class="block text-left | md:text-left">
+            {titleLine2}
+          </span>
+        </h1>
+      </a>
     </div>
 
     <!-- Botones ajustados para móviles, en fila en pantallas grandes -->
-    <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-2">
-      <button class="bg-customBlue hover:scale-105 transition duration-300 ease-in-out border-[3px] border-customCyan text-white font-bold py-1 px-2 rounded-full text-xs md:text-sm h-9 w-32 md:w-36">
+    <div class="flex flex-col space-y-2 | sm:space-y-0 sm:flex-row sm:space-x-2">
+      <button class="
+      bg-customBlue 
+        hover:scale-105 transition duration-300 ease-in-out //animación
+        border-[3px] border-customCyan rounded-full //bordes
+        text-white font-bold text-[10px] | sm:text-xs | md:text-sm | lg:text-sm //texto
+        px-2 py-1 
+        h-7 w-26 | sm:h-8 sm:w-32 | md:h-9 md:w-36 | lg:h-9 lg:w-40 //tamaño
+        ">
         {registerButtonText}
       </button>
-      <button class="bg-customCyan hover:scale-105 transition duration-300 ease-in-out border-2 border-customCyan text-black font-bold py-1 px-2 rounded-full text-xs md:text-sm h-9 w-32 md:w-36">
+      <button class="
+      bg-customCyan
+        hover:scale-105 transition duration-300 ease-in-out //animación
+        border-[3px] border-customCyan rounded-full //bordes
+        text-customBlack font-extrabold text-[9px] | sm:text-xs | md:text-sm | lg:text-sm //texto
+        px-2 py-1 
+        h-7 w-26 | sm:h-8 sm:w-32 | md:h-9 md:w-36 | lg:h-9 lg:w-40 //tamaño
+        ">
         {loginButtonText}
       </button>
     </div>

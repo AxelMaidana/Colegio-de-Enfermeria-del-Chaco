@@ -21,6 +21,12 @@ export default {
 		  customBlack: '#2E2E2E',
 		  customCyan: '#4DC9DE',
 		},
+		fontSize: {
+			'responsive': 'clamp(0.75rem, 1vw + 0.25rem, 1rem)', // Tamaño responsivo
+		  	},
+		padding: {
+			'responsive': 'clamp(0.5rem, 2vw + 0.25rem, 1rem)', // Padding responsivo
+			},
 	  },
 	},
 	plugins: [],
