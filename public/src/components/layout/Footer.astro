@@ -3,14 +3,14 @@
 const { logoSrc, copyrightText, instagramLink, facebookLink, padding } = Astro.props;
 ---
 <!-- Footer -->
-<footer class=`bg-customBlack text-white p-2 md:px-12 flex flex-col md:flex-row justify-between items-center ${padding}`>
+<footer class=`bg-customBlack text-white p-2 md:px-12 md:gap-x-2 flex flex-col md:flex-row justify-between items-center ${padding}`>
   <!-- Sección de la izquierda: imagen y texto -->
-  <div class="flex flex-col md:flex-row items-center space-x-4 mb-4 gap-y-2 md:mb-0">
+  <div class="flex flex-col md:flex-row items-center space-x-4 mb-4 gap-y-2 md:mb-0 | md:space-x-0 md:gap-x-2">
     <!-- Imagen -->
-    <img src={logoSrc} alt="Logo CECH" class="h-16 w-auto md:h-24" />
+    <img src={logoSrc} alt="Logo CECH" class="h-16 w-auto md:h-20" />
     
     <!-- Texto -->
-    <div class="text-xs md:text-base text-center md:text-center w-48 md:w-auto">
+    <div class="text-xs w-48 text-center md:text-sm md:text-left md:w-auto ">
       <p>&copy; {copyrightText}</p>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Autoplay } from 'swiper/modules'
 import Card from '../Home/Card'
@@ -9,18 +9,20 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 const cardData = [
-  { title: "Evento 1: Conferencia de Enfermería", imageUrl: "/media/image1.png" },
-  { title: "Evento 2: Taller de Primeros Auxilios", imageUrl: "/media/image3.png" },
-  { title: "Evento 3: Seminario de Ética en Enfermería", imageUrl: "/media/image1.png" },
-  { title: "Evento 4: Curso de Actualización en Cuidados Intensivos", imageUrl: "/media/image3.png" },
-  { title: "Evento 5: Jornada de Salud Mental", imageUrl: "/media/image1.png" },
-  { title: "Evento 6: Taller de Primeros Auxilios", imageUrl: "/media/image3.png" },
-  { title: "Evento 7: Seminario de Ética en Enfermería", imageUrl: "/media/image1.png" },
-  { title: "Evento 8: Curso de Actualización en Cuidados Intensivos", imageUrl: "/media/image3.png" },
-  { title: "Evento 9: Jornada de Salud Mental", imageUrl: "/media/image1.png" },
+  { title: "Evento 1: Conferencia de Enfermería", imageUrl: "/media/image1.png", date: "01/02/24" },
+  { title: "Evento 2: Taller de Primeros Auxilios", imageUrl: "/media/image3.png", date: "01/02/24" },
+  { title: "Evento 3: Seminario de Ética en Enfermería", imageUrl: "/media/image1.png", date: "01/02/24" },
+  { title: "Evento 4: Curso de Actualización en Cuidados Intensivos", imageUrl: "/media/image3.png", date: "01/02/24" },
+  { title: "Evento 5: Jornada de Salud Mental", imageUrl: "/media/image1.png", date: "01/02/24" },
+  { title: "Evento 6: Taller de Primeros Auxilios", imageUrl: "/media/image3.png", date: "01/02/24" },
+  { title: "Evento 7: Seminario de Ética en Enfermería", imageUrl: "/media/image1.png", date: "01/02/24" },
+  { title: "Evento 8: Curso de Actualización en Cuidados Intensivos", imageUrl: "/media/image3.png", date: "01/02/24" },
+  { title: "Evento 9: Jornada de Salud Mental", imageUrl: "/media/image1.png", date: "01/02/24" },
 ]
 
 const InfiniteCarrousel: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0) // Estado para el índice activo
+
   return (
     <Swiper
       modules={[Pagination, Navigation, Autoplay]}
@@ -29,6 +31,7 @@ const InfiniteCarrousel: React.FC = () => {
       pagination={{ clickable: true }}
       navigation
       autoplay={{ delay: 2000, disableOnInteraction: false }}
+      onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Actualizamos el índice activo cuando cambia la slide
       breakpoints={{
         320: {
           slidesPerView: 1.3,
@@ -63,11 +66,11 @@ const InfiniteCarrousel: React.FC = () => {
           spaceBetween: 30,
         },
         1600: {
-          slidesPerView: 4.5,  // Ajuste para una transición más suave
+          slidesPerView: 4.5,
           spaceBetween: 50,
         },
         1920: {
-          slidesPerView: 5.2,  // Mostrar un poco más de las tarjetas laterales
+          slidesPerView: 5.2,
           spaceBetween: 80,
         },
       }}
@@ -77,7 +80,9 @@ const InfiniteCarrousel: React.FC = () => {
         <SwiperSlide key={index} className="py-8 h-auto">
           <Card
             title={card.title}
+            date={card.date}
             imageUrl={card.imageUrl}
+            isFocused={index === activeIndex} // Determina si la tarjeta está en foco
           />
         </SwiperSlide>
       ))}
