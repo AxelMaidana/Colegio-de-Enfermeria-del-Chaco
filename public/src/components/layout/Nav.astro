@@ -173,22 +173,4 @@
   </div>
 </nav>
 
-
-<!-- Script para toggle del menú móvil -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuClose = document.getElementById('menu-close');
-
-    if (menuToggle && mobileMenu && menuClose) {
-      menuToggle.addEventListener('click', function() {
-        mobileMenu.classList.toggle('translate-x-full');
-      });
-
-      menuClose.addEventListener('click', function() {
-        mobileMenu.classList.add('translate-x-full');
-      });
-    }
-  });
-</script>
+<script src="/src/components/js/menu.js"></script>

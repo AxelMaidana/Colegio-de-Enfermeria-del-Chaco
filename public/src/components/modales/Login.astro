@@ -1,0 +1,22 @@
+<!-- Modal de inicio de sesión -->
+<div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white text-customBlack p-6 sm:p-8 md:p-10 rounded-3xl shadow-lg max-w-md w-full transform transition-transform duration-300 scale-95 translate-y-4">
+      <h2 class="text-2xl sm:text-3xl text-center font-bold mt-2 mb-6">INICIAR SESIÓN</h2>
+      <form>
+        <div class="mb-4">
+          <label for="username" class="block text-lg font-bold">Usuario</label>
+          <input type="text" id="username" class="border border-customBlack rounded-2xl w-full p-2" required />
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-lg font-bold">Contraseña</label>
+          <input type="password" id="password" class="border border-customBlack rounded-2xl w-full p-2" required />
+        </div>
+  
+        <div class="flex justify-center flex-col items-center mt-10 mb-3">
+          <button id="submit-login-btn" class="bg-customBlue transition duration-300 hover:scale-105 text-white text-sm font-semibold px-6 py-3 rounded-xl">INGRESAR</button>
+          <p class="text-customBlue text-sm font-xs pt-6">¿Aun no tienes una cuenta?</p>
+          <a href="#" id="register-link-2" class="text-customBlue underline text-xs font-bold tracking-tight">HAZ CLICK AQUI PARA REGISTRARTE</a>
+        </div>
+      </form>
+    </div>
+  </div>

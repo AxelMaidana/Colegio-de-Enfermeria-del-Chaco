@@ -35,9 +35,10 @@ const footerData = {
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="./media/cechLogo.png" />
-		<link rel="stylesheet" href="./styles/global.css" />
+		<link rel="stylesheet" href="/styles/global.css" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		
 	</head>
 	<body class="flex flex-col min-h-screen">
 		<Header 
@@ -56,5 +57,7 @@ const footerData = {
         instagramLink={footerData.instagramLink}
         facebookLink={footerData.facebookLink}
     />
+	
 	</body>
+	
 </html>
