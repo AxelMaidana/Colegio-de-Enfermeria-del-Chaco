@@ -1,17 +1,18 @@
 ---
 // Header.astro
+import Login from '../modales/Login.astro';
+import Registro from '../modales/Registro.astro';
+
 const { logoSrc, titleLine1, titleLine2, registerButtonText, loginButtonText } = Astro.props;
 ---
 
 <header class="bg-customBlue text-white py-2">
   <div class="container flex flex-row justify-between items-center mx-auto px-2 space-x-0">
-    <!-- Logo y Título en columna en pantallas pequeñas y fila en pantallas grandes -->
+    <!-- Logo y Título (sin cambios) -->
     <div class="flex items-center text-left | md:flex-row md:items-center gap-2 | md:gap-4">
-      <!-- Logo con tamaño ajustado para pantallas móviles -->
       <a href="/">
         <img src={logoSrc} alt="Logo CECH" class="h-14 w-auto sm:h-[4.5rem] md:h-20 lg:h-24" />
       </a>
-      <!-- Título alineado a la derecha de la imagen en móviles -->
       <a href="/">
         <h1 class="text-left text-xs tracking-wide font-medium leading-tight 
           sm:text-lg sm:leading-5
@@ -26,28 +27,33 @@ const { logoSrc, titleLine1, titleLine2, registerButtonText, loginButtonText } =
       </a>
     </div>
 
-    <!-- Botones ajustados para móviles, en fila en pantallas grandes -->
+    <!-- Botones con IDs añadidos -->
     <div class="flex flex-col space-y-2 | sm:space-y-0 sm:flex-row sm:space-x-2">
-      <button class="
+      <button id="register-button" class="
       bg-customBlue 
-        hover:scale-105 transition duration-300 ease-in-out //animación
-        border-[3px] border-customCyan rounded-full //bordes
-        text-white font-bold text-[10px] | sm:text-xs | md:text-sm | lg:text-sm //texto
+        hover:scale-105 transition duration-300 ease-in-out
+        border-[3px] border-customCyan rounded-full
+        text-white font-bold text-[10px] | sm:text-xs | md:text-sm | lg:text-sm
         px-2 py-1 
-        h-7 w-26 | sm:h-8 sm:w-32 | md:h-9 md:w-36 | lg:h-9 lg:w-40 //tamaño
+        h-7 w-26 | sm:h-8 sm:w-32 | md:h-9 md:w-36 | lg:h-9 lg:w-40
         ">
         {registerButtonText}
       </button>
-      <button class="
+      <button id="login-button" class="
       bg-customCyan
-        hover:scale-105 transition duration-300 ease-in-out //animación
-        border-[3px] border-customCyan rounded-full //bordes
-        text-customBlack font-extrabold text-[9px] | sm:text-xs | md:text-sm | lg:text-sm //texto
+        hover:scale-105 transition duration-300 ease-in-out
+        border-[3px] border-customCyan rounded-full
+        text-customBlack font-extrabold text-[9px] | sm:text-xs | md:text-sm | lg:text-sm
         px-2 py-1 
-        h-7 w-26 | sm:h-8 sm:w-32 | md:h-9 md:w-36 | lg:h-9 lg:w-40 //tamaño
+        h-7 w-26 | sm:h-8 sm:w-32 | md:h-9 md:w-36 | lg:h-9 lg:w-40
         ">
         {loginButtonText}
       </button>
     </div>
   </div>
 </header>
+
+<Login />
+<Registro />
+
+<script src="/src/components/js/modalHeader.js"></script>
