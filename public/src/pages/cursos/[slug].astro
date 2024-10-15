@@ -8,6 +8,15 @@ import InfoExtra from '../../components/ActAcademicas/detalle/InfoExtra.astro';
 import CardSide from '../../components/ActAcademicas/detalle/CardSide.astro';
 import Certificado from '../../components/ActAcademicas/detalle/Certificado.astro';
 import {cursos} from '../../components/js/cursos.js';
+import { checkUserRole } from "../api/auth/roleBasedRedirect";
+
+// Obtener información del usuario y su rol
+const userData = await checkUserRole(Astro, ["admin", "user", "guest"]);
+
+// Si no está autenticado, redirigir
+if (!userData) {
+  return Astro.redirect("/signin");
+}
 
 // src/pages/cursos/[slug].astro
 const { slug } = Astro.params;
@@ -18,10 +27,11 @@ if (!curso) {
 }
 
 const hasSecondTeacher = curso.Teachers.length > 1; // Verifica si hay un segundo docente
+
 ---
 
 <Layout title={curso.title}>
-    <Pastilla/>
+    <Pastilla title = "Información del curso"/>
     <Banner 
       title={curso.title}
       image={curso.image}

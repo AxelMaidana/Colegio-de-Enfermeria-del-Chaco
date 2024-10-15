@@ -3,6 +3,15 @@ import LayoutNormal from '../../Layouts/Layout.astro';
 import Busqueda from '../../components/ActAcademicas/Busqueda.astro';
 import TextoInformativo from '../../components/ActAcademicas/TextoInformativo.astro';
 import Grilla from '../../components/ActAcademicas/Grilla.astro';
+import { checkUserRole } from "../api/auth/roleBasedRedirect";
+
+// Obtener información del usuario y su rol
+const userData = await checkUserRole(Astro, ["admin", "user", "guest"]);
+
+// Si no está autenticado, redirigir
+if (!userData) {
+  return Astro.redirect("/signin");
+}
 ---
 
 <LayoutNormal title="Act. Académicas">

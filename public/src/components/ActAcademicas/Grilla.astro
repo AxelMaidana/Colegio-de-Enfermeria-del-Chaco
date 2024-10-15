@@ -3,7 +3,7 @@ import CardCurso from './CardCurso.astro';
 import { cursos } from '../js/cursos.js';
 ---
 
-<div class="container mx-auto pb-20">
+<div class="container mx-auto mb-auto">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
     {Object.entries(cursos).map(([slug, curso]) => (
       <div class="flex justify-center">

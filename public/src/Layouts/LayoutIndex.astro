@@ -4,6 +4,15 @@ import '@fontsource-variable/montserrat'
 import Header from '../components/layout/Header.astro';
 import Nav from '../components/layout/Nav.astro';
 import Footer from '../components/layout/Footer.astro';
+import { checkUserRole } from "../pages/api/auth/roleBasedRedirect";
+
+//Verificar el rol del usuario y obtener su información
+const userData = await checkUserRole(Astro, ["admin", "user", "guest"]);
+
+// Si no está autenticado, redirigir
+if (!userData) {
+  return Astro.redirect("/signin");
+}
 
 interface Props {
 	title: string;
@@ -45,6 +54,8 @@ const headerData = {
 		titleLine2={headerData.titleLine2}
 		registerButtonText={headerData.registerButtonText}
 		loginButtonText={headerData.loginButtonText}
+		user={userData.name}
+		role={userData.role}
 		/>
 		<Nav/>
 		<ViewTransitions />

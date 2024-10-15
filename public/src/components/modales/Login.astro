@@ -1,22 +1,135 @@
-<!-- Modal de inicio de sesión -->
-<div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
-  <div class="bg-white text-customBlack p-6 sm:p-8 md:p-10 rounded-3xl shadow-lg max-w-md w-full transform transition-transform duration-300 scale-95 translate-y-4 relative z-60">
-      <h2 class="text-2xl sm:text-3xl text-center font-bold mt-2 mb-6">INICIAR SESIÓN</h2>
-      <form>
-        <div class="mb-4">
-          <label for="username" class="block text-lg font-bold">Usuario</label>
-          <input type="text" id="username" class="border border-customBlack rounded-2xl w-full p-2" required />
-        </div>
-        <div class="mb-4">
-          <label for="password" class="block text-lg font-bold">Contraseña</label>
-          <input type="password" id="password" class="border border-customBlack rounded-2xl w-full p-2" required />
-        </div>
-  
-        <div class="flex justify-center flex-col items-center mt-10 mb-3">
-          <button id="submit-login-btn" class="bg-customBlue transition duration-300 hover:scale-105 text-white text-sm font-semibold px-6 py-3 rounded-xl">INGRESAR</button>
-          <p class="text-customBlue text-sm font-xs pt-6">¿Aun no tienes una cuenta?</p>
-          <a href="#" id="register-link-2" class="text-customBlue underline text-xs font-bold tracking-tight">HAZ CLICK AQUI PARA REGISTRARTE</a>
-        </div>
-      </form>
-    </div>
-  </div>
+---
+// Importaciones
+import { app } from "../../firebase/server";
+import { getAuth } from "firebase-admin/auth";
+import { getFirestore } from "firebase-admin/firestore";
+
+// Inicializa Firebase
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Verifica si hay una cookie de sesión
+let isAuthenticated = false;
+
+if (Astro.cookies.has("__session")) {
+    const sessionCookie = Astro.cookies.get("__session")?.value;
+    console.log("Cookie de sesión:", sessionCookie); // Log de la cookie de sesión
+
+    const decodedCookie = await auth.verifySessionCookie(sessionCookie || "");
+    console.log("Cookie decodificada:", decodedCookie); // Log del cookie decodificado
+
+    if (decodedCookie) {
+        isAuthenticated = true; // Cambia a verdadero si el usuario está autenticado
+        const uid = decodedCookie.uid;
+        const userDoc = await db.collection("users").doc(uid).get();
+        const userData = userDoc.data();
+
+        if (userData?.role === "admin") {
+            console.log("Redirigiendo a dashboardAdmin");
+            return Astro.redirect("/roles/dashboardAdmin");
+        } else if (userData?.role === "user") {
+            console.log("Redirigiendo a dashboardUser");
+            return Astro.redirect("/roles/dashboardUser");
+        } else {
+            console.log("Redirigiendo a dashboardGuest");
+            return Astro.redirect("/roles/dashboardGuest");
+        }
+    }
+}
+---
+<!-- Cargar los modales solo si el usuario NO está autenticado -->
+{!isAuthenticated && (
+    <>
+        <!-- Modal de inicio de sesión -->
+        <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+          <div class="bg-white text-customBlack p-6 sm:p-8 md:p-10 rounded-3xl shadow-lg max-w-md w-full transform transition-transform duration-300 scale-95 translate-y-4 relative z-60">
+              <h2 class="text-2xl sm:text-3xl text-center font-bold mt-2 mb-6">INICIAR SESIÓN</h2>
+              <form action="/api/auth/signin" method="post" id="signin-form" class="flex flex-col">
+                <div class="mb-4">
+                  <label for="email" class="block text-lg font-bold">Email</label>
+                  <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="border border-customBlack rounded-2xl w-full p-2" 
+                  required />
+                </div>
+                <div class="mb-4">
+                  <label for="password" class="block text-lg font-bold">Contraseña</label>
+                  <input 
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  class="border border-customBlack rounded-2xl w-full p-2" 
+                  required />
+                </div>
+                <p class="text-red-500 text-sm font-bold" id="error-message" style="display: none;"></p> <!-- Mensaje de error -->
+                <div class="flex justify-center flex-col items-center mt-10 mb-3">
+                  <button id="submit-login-btn" class="bg-customBlue transition duration-300 hover:scale-105 text-white text-sm font-semibold px-6 py-3 rounded-xl">INGRESAR</button>
+                  <p class="text-customBlue text-sm font-xs pt-6">¿Aun no tienes una cuenta?</p>
+                  <a href="#" id="register-link-2" class="text-customBlue underline text-xs font-bold tracking-tight">HAZ CLICK AQUI PARA REGISTRARTE</a>
+                </div>
+              </form>
+            </div>
+          </div>
+    </>
+)}
+
+<!-- Script para manejar el inicio de sesión -->
+<script>
+    import { getAuth, inMemoryPersistence, signInWithEmailAndPassword } from "firebase/auth";
+    import { app } from "../../firebase/client";
+
+    const auth = getAuth(app);
+    auth.setPersistence(inMemoryPersistence);
+
+    const form = document.getElementById("signin-form") as HTMLFormElement;
+
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const email = formData.get("email")?.toString();
+            const password = formData.get("password")?.toString();
+
+            if (!email || !password) {
+                return;
+            }
+
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const idToken = await userCredential.user.getIdToken();
+
+                const response = await fetch("/api/auth/signin", {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${idToken}`,
+                    },
+                });
+
+                if (!response.ok) {
+                    const result = await response.json();
+                    const errorElement = document.getElementById("error-message") as HTMLParagraphElement | null;
+                    if (errorElement) {
+                        errorElement.innerText = result.error || "Error al iniciar sesión. Verifica tus credenciales.";
+                        errorElement.style.display = "block";
+                    }
+                } else {
+                    // Obtener la URL de redirección de la respuesta
+                    const redirectUrl = response.headers.get('Location') || '/';
+                    
+                    // Redirigir al usuario
+                    window.location.href = redirectUrl;
+                }
+            } catch (error) {
+                console.error("Error durante el inicio de sesión:", error);
+                const errorElement = document.getElementById("error-message") as HTMLParagraphElement | null;
+                if (errorElement) {
+                    errorElement.innerText = "Error al iniciar sesión. Verifica tus credenciales.";
+                    errorElement.style.display = "block";
+                }
+            }
+        });
+    }
+</script>
+<script src="/src/components/js/loginModal.js"></script>
