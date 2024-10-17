@@ -1,6 +1,5 @@
 ---
 // Header.astro
-import Login from '../modales/Login.astro';
 
 const { logoSrc, titleLine1, titleLine2, loginButtonText, user, role } = Astro.props;
 
@@ -113,59 +112,6 @@ if (!userData) {
 </header>
 
 
-{/* Cargar modales solo si no hay usuario */}
-{!user && (
-  <>
-    <Login />
-  </>
-)}
-
-<script>
-  function setupDropdown() {
-    const avatar = document.getElementById('avatar') as HTMLElement;
-    const dropdown = document.getElementById('dropdown-menu') as HTMLElement;
-    const menuLinks = dropdown.querySelectorAll('a'); // Todos los enlaces dentro del menú
-
-    if (!avatar || !dropdown || !menuLinks) return;
-
-    function toggleMenu() {
-      const isHidden = dropdown.classList.toggle('hidden');
-      localStorage.setItem('menuOpen', isHidden ? 'false' : 'true');
-    }
-
-    function closeMenu() {
-      dropdown.classList.add('hidden');
-      localStorage.setItem('menuOpen', 'false');
-    }
-
-    avatar.addEventListener('click', (event) => {
-      event.stopPropagation();
-      toggleMenu();
-    });
-
-    document.addEventListener('click', (event) => {
-      const target = event.target as Node;
-      if (!avatar.contains(target) && !dropdown.contains(target)) {
-        closeMenu();
-      }
-    });
-
-    // Cerrar el menú al hacer clic en cualquier enlace dentro de él
-    menuLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        closeMenu(); // Cierra el menú inmediatamente antes de la redirección
-      });
-    });
-
-    // Verificar el estado del menú
-    if (localStorage.getItem('menuOpen') === 'true') {
-      dropdown.classList.remove('hidden');
-    }
-  }
-
-  // Ejecutar setupDropdown en la carga inicial y después de cada navegación
-  document.addEventListener('astro:page-load', setupDropdown);
-</script>
 
 
 
